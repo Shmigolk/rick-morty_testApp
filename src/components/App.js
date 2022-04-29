@@ -3,11 +3,13 @@ import Character from "./Character";
 import '../App.css';
 import {nanoid} from "nanoid";
 import Pagination from "./pagination";
+import SingleCharPage from "./SingleCharPage";
 
 export default function App() {
 
     const [characters, setCharacters] = React.useState([])
     const [currentPage, setCurrentPage] = React.useState(1)
+    const [singleCharShow, setSingleCharShow] = React.useState(false)
     const itemsPerPage = 4
 
     React.useEffect( () => {
@@ -16,26 +18,29 @@ export default function App() {
             .then(res => setCharacters(res.results))
     }, [])
 
+    const charactersRendering = characters.map( char => (
+        <Character
+            key = {nanoid()}
+            characterData = {char}
+            showCharPage = {() => showCharPage(char)}
+        />
+        )).slice(currentPage * itemsPerPage - itemsPerPage, currentPage * itemsPerPage)
+
+    const pagination = getPaginationArray(characters, itemsPerPage)
+        .map( pageNumber => <Pagination
+            pageNumber = {pageNumber}
+            changePageNumber = {() => changePageNumber(pageNumber)}/>)
+
     function showCharPage(item){
-        console.log(item.location.name)
+        const singleCharPage = <SingleCharPage
+            characterData = {item}
+        />
+        setSingleCharShow(true)
     }
 
     function changePageNumber(number){
         setCurrentPage(number)
     }
-
-    const charactersRendering = characters.map( item => (
-        <Character
-            key = {nanoid()}
-            characterData = {item}
-            showCharPage = {() => showCharPage(item)}
-        />
-        )).slice(currentPage * itemsPerPage - itemsPerPage, currentPage * itemsPerPage)
-
-    const pagination = getPaginationArray(characters, itemsPerPage)
-        .map( item => <Pagination
-            pageNumber = {item}
-            changePageNumber = {() => changePageNumber(item)}/>)
 
     return (
         <div>
@@ -49,7 +54,7 @@ export default function App() {
 /*auxiliary functions*/
 function getPaginationArray(characters, itemsPerPage = 4){
     let Arr = []
-    for (let page = 1; page <= characters.length / itemsPerPage; page ++){
+    for (let page = 1; page <= Math.ceil(characters.length / itemsPerPage); page ++){
         Arr.push(page)
     }
     return Arr
