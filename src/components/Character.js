@@ -1,8 +1,7 @@
 import React from "react";
-/*import logo from "../logo.svg"*/
-
 
 export default function Character(props) {
+
     const avatarUrl = props.characterData.image
     const name = props.characterData.name
     const gender = props.characterData.gender
