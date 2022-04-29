@@ -32,10 +32,8 @@ export default function App() {
             changePageNumber = {() => changePageNumber(pageNumber)}/>)
 
     function showCharPage(item){
-        const singleCharPage = <SingleCharPage
-            characterData = {item}
-        />
         setSingleCharShow(true)
+        console.log(item)
     }
 
     function changePageNumber(number){
@@ -43,7 +41,7 @@ export default function App() {
     }
 
     return (
-        <div>
+        !singleCharShow && <div>
       <div className ='character-container'>
           {charactersRendering}
       </div>
