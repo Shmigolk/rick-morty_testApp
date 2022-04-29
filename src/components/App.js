@@ -12,6 +12,7 @@ export default function App() {
     const [singleCharShow, setSingleCharShow] = React.useState(false)
     const itemsPerPage = 4
 
+
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
             .then(res => res.json())
@@ -46,7 +47,7 @@ export default function App() {
           {charactersRendering}
       </div>
             <div className="pagination">{pagination}</div>
-        </div>
+        </div> || <h1>Hello world</h1>
   )
 }
 /*auxiliary functions*/
