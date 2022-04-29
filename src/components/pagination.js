@@ -4,7 +4,8 @@ export default function Pagination(props) {
     return (
         <div
             className="pagination__box"
-            onClick={props.changePageNumber}
-        >{props.pageNumber}</div>
+            onClick={props.changePageNumber}>
+            {props.pageNumber}
+        </div>
     )
 }

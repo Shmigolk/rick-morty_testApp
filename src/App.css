@@ -9,20 +9,9 @@ body {
   padding-top: 2em;
 }
 
-
-
 .App-link {
   color: var(--clr-pgntn);
   border: 2px solid var(--clr-pgntn);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .character-card {
@@ -54,6 +43,7 @@ body {
   margin-top: 5rem;
   display: flex;
   justify-content: center;
+  align-content: center;
   gap: 1em;
   padding: 5px;
 }
@@ -62,7 +52,7 @@ body {
   color: azure;
   display: flex;
   justify-content: center;
-  vertical-align: middle;
+  align-content: center;
   font-size: 2em;
   border: 2px solid var(--clr-pgntn);
   width: 2em;
@@ -70,6 +60,10 @@ body {
   text-align: center;
   cursor: pointer;
   border-radius: 10%;
+}
+
+.pagination__box:hover{
+  opacity: 30%;
 }
 
 .character-card__btn {
