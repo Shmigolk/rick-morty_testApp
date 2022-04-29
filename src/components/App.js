@@ -26,10 +26,11 @@ export default function App() {
             characterData = {char}
             showCharPage = {() => showCharPage(char)}
         />
-        )).slice(currentPage * itemsPerPage - itemsPerPage, currentPage * itemsPerPage)
+        )).slice(itemsPerPage * (currentPage - 1), currentPage * itemsPerPage)
 
     const pagination = getPaginationArray(characters, itemsPerPage)
         .map( pageNumber => <Pagination
+            key = {pageNumber}
             pageNumber = {pageNumber}
             changePageNumber = {() => changePageNumber(pageNumber)}/>)
 
@@ -42,6 +43,11 @@ export default function App() {
         setCurrentPage(number)
     }
 
+    function backToMain(){
+        setSingleCharShow(false)
+        setSingleCharPage({})
+    }
+
     return (
         !singleCharShow && <div>
       <div className ='character-container'>
@@ -50,7 +56,9 @@ export default function App() {
             <div className="pagination">{pagination}</div>
         </div> || <div className ='character-container'>
             <SingleCharPage
+                key = {nanoid()}
                 characterData = {singleCharPage}
+                backToMain = {backToMain}
         />
         </div>
   )

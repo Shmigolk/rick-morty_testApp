@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 function SingleCharPage(props) {
 
@@ -7,6 +7,7 @@ function SingleCharPage(props) {
     const gender = props.characterData.gender
     const status = props.characterData.status
     const location = props.characterData.location.name
+    const backToMain = props.backToMain
 
     return (
         <section className="character-card">
@@ -17,9 +18,9 @@ function SingleCharPage(props) {
             <h3>{gender}</h3>
             <h3>{status}</h3>
             <h3>{location}</h3>
-            <button>Main page</button>
+            <button onClick={backToMain}>Main page</button>
         </section>
-    );
-};
+    )
+}
 
-export default SingleCharPage;
+export default SingleCharPage
