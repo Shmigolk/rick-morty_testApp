@@ -1,7 +1,7 @@
 import React from "react";
 import Character from "./Character";
 import '../App.css';
-import {nanoid} from "nanoid"
+import {nanoid} from "nanoid";
 import Pagination from "./pagination";
 
 export default function App() {
@@ -46,7 +46,7 @@ export default function App() {
         </div>
   )
 }
-
+/*auxiliary functions*/
 function getPaginationArray(characters, itemsPerPage = 4){
     let Arr = []
     for (let page = 1; page <= characters.length / itemsPerPage; page ++){
