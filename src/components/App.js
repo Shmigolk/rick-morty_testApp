@@ -20,6 +20,10 @@ export default function App() {
         console.log(item.location.name)
     }
 
+    function changePageNumber(number){
+        setCurrentPage(number)
+    }
+
     const charactersRendering = characters.map( item => (
         <Character
             key = {nanoid()}
@@ -29,7 +33,9 @@ export default function App() {
         )).slice(currentPage * 3 - 3, currentPage * 3)
 
     const pagination = getPaginationArray(characters, itemsPerPage)
-        .map( item => <Pagination pageNumber = {item}/>)
+        .map( item => <Pagination
+            pageNumber = {item}
+            changePageNumber = {() => changePageNumber(item)}/>)
 
 
     return (
