@@ -12,16 +12,16 @@ function App() {
             .then(res => setCharacter(res.results))
     }, [])
 
-
     console.log(character)
 
-    return (
+
+    /*return (
       <div>
 
       <Character
           characterData = {character}/>
       </div>
-  );
+  )*/;
 }
 
 export default App;
