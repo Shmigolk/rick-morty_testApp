@@ -8,7 +8,7 @@ export default function App() {
 
     const [characters, setCharacters] = React.useState([])
     const [currentPage, setCurrentPage] = React.useState(1)
-    const itemsPerPage = 3
+    const itemsPerPage = 4
 
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -30,13 +30,12 @@ export default function App() {
             characterData = {item}
             showCharPage = {() => showCharPage(item)}
         />
-        )).slice(currentPage * 3 - 3, currentPage * 3)
+        )).slice(currentPage * itemsPerPage - itemsPerPage, currentPage * itemsPerPage)
 
     const pagination = getPaginationArray(characters, itemsPerPage)
         .map( item => <Pagination
             pageNumber = {item}
             changePageNumber = {() => changePageNumber(item)}/>)
-
 
     return (
         <div>
