@@ -1,24 +1,15 @@
 :root{
   --clr-card: #19c7c7;
   --clr-pgntn: azure;
+  --clr-btn: greenyellow;
 }
 
 body {
   background: #282c34;
+  padding-top: 2em;
 }
 
-.box--number {
-  color: azure;
-  display: flex;
-  justify-content: center;
-  font-size: 2em;
-  border: 2px solid var(--clr-pgntn);
-  width: 2em;
-  height: 2em;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 10%;
-}
+
 
 .App-link {
   color: var(--clr-pgntn);
@@ -64,4 +55,35 @@ body {
   display: flex;
   justify-content: center;
   gap: 1em;
+  padding: 5px;
+}
+
+.pagination__box {
+  color: azure;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  font-size: 2em;
+  border: 2px solid var(--clr-pgntn);
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10%;
+}
+
+.character-card__btn {
+  background: var(--clr-btn);
+  font-size: 1em;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  height: 40px;
+  font-weight: bold;
+  /*border: none;*/
+  border: 3px solid white;
+  cursor: pointer;
+}
+
+.character-card__noCursor {
+  cursor: default;
 }

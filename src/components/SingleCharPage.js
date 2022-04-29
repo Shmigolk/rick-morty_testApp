@@ -10,15 +10,15 @@ function SingleCharPage(props) {
     const backToMain = props.backToMain
 
     return (
-        <section className="character-card">
+        <section className="character-card character-card__noCursor">
             <div className="character-card__avatar">
                 <img src={avatarUrl} alt='some text'/>
             </div>
             <h2>{name}</h2>
             <h3>{gender}</h3>
             <h3>{status}</h3>
-            <h3>{location}</h3>
-            <button onClick={backToMain}>Main page</button>
+            <h3>Location: {location}</h3>
+            <button className="character-card__btn" onClick={backToMain}>Main page</button>
         </section>
     )
 }
