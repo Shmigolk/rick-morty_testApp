@@ -10,8 +10,10 @@ export default function App() {
     const [characters, setCharacters] = React.useState([])
     const [currentPage, setCurrentPage] = React.useState(1)
     const [singleCharShow, setSingleCharShow] = React.useState(false)
+    const [singleCharPage, setSingleCharPage] = React.useState({})
     const itemsPerPage = 4
 
+    let condRend
 
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -34,7 +36,7 @@ export default function App() {
 
     function showCharPage(item){
         setSingleCharShow(true)
-        console.log(item)
+        setSingleCharPage(item)
     }
 
     function changePageNumber(number){
@@ -47,7 +49,7 @@ export default function App() {
           {charactersRendering}
       </div>
             <div className="pagination">{pagination}</div>
-        </div> || <h1>Hello world</h1>
+        </div> || <h1>{condRend}</h1>
   )
 }
 /*auxiliary functions*/
