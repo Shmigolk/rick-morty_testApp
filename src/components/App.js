@@ -49,7 +49,7 @@ export default function App() {
 
 function getPaginationArray(characters, itemsPerPage = 4){
     let Arr = []
-    for (let page = 1; page <= characters.length / itemsPerPage - 1; page ++){
+    for (let page = 1; page <= characters.length / itemsPerPage; page ++){
         Arr.push(page)
     }
     return Arr
