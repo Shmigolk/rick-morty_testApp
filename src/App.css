@@ -1,3 +1,6 @@
+:root{
+  --clr-card: #19c7c7;
+}
 .App {
   text-align: center;
 }
@@ -5,6 +8,14 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+body {
+  background: #282c34;
+  justify-items: center;
+  align-items: center;
+ /* padding: 2em;*/
+  display: flex;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +46,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.character-card {
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto auto;
+  /*border: solid var(--clr-card);*/
+  border-radius: 1em;
+  overflow: hidden;
+  background-color: var(--clr-card);
+  cursor: pointer;
+}
+
+.character-card__avatar {
+  width: 300px;
+  margin: 0 auto;
 }
