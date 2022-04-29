@@ -49,7 +49,7 @@ export default function App() {
           {charactersRendering}
       </div>
             <div className="pagination">{pagination}</div>
-        </div> || <h1>{condRend}</h1>
+        </div> || <h1>{}</h1>
   )
 }
 /*auxiliary functions*/
