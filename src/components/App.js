@@ -19,6 +19,8 @@ export default function App() {
     })
 
     const itemsPerPage = 4
+    const genders = ["Male", "Female", "Other", "All"]
+    const status = ["Alive", "Dead", "unknown"]
 
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -54,20 +56,16 @@ export default function App() {
         setSingleCharPage({})
     }
 
-    function nameFilter(){
-
-    }
-
     return (
         !singleCharShow &&
         <main>
-            <Filter/>
-            <div>
+            <Filter genders = {genders}
+                    status = {status}
+            />
       <div className ='character-container'>
           {charactersRendering}
       </div>
             <div className="pagination">{pagination}</div>
-            </div>
         </main> || <div className ='character-container'>
             <SingleCharPage
                 key = {nanoid()}

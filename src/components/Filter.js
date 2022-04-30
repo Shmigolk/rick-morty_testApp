@@ -1,9 +1,11 @@
 import React from 'react';
 
 function Filter(props) {
+    const genders = props.genders.map( gender => <option value={gender}>{gender}</option>)
+    const statuses = props.status.map( status => <option value={status}>{status}</option>)
 
     return (
-        <div filter-component>
+        <div className= "filter-component">
             <input type="text"
                    className=''
                    placeholder='input name'
@@ -11,11 +13,16 @@ function Filter(props) {
                    />
             <label> Gender
             <select value="Gender">
-                <option value="male">Male</option>
-                <option value="male">Female</option>
-                <option value="male">All</option>
+                {genders}
             </select>
             </label>
+
+            <label> Status
+                <select value="Gender">
+                    {statuses}
+                </select>
+            </label>
+
         </div>
     )
 }

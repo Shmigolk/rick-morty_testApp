@@ -50,7 +50,7 @@ main {
 }
 
 .pagination {
-  margin-top: 5rem;
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -88,7 +88,6 @@ main {
   cursor: pointer;
 }
 
-
 .character-card__btn:hover {
   opacity: 80%;
   transform: scale(1.03);
@@ -106,12 +105,15 @@ main {
 }
 
 .filter-component {
-  width: 500px;
+  width: 30%;
   display: flex;
   padding: 2rem;
+  justify-content: center;
+  align-content: center;
 }
 
 label {
   background: #282c34;
   color: white;
+  display: flex;
 }
