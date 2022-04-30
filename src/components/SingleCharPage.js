@@ -10,7 +10,7 @@ function SingleCharPage(props) {
     const backToMain = props.backToMain
 
     return (
-        <section className="character-card character-card__noCursor">
+        <section className="character-single-container">
             <div className="character-card__avatar">
                 <img src={avatarUrl} alt='some text'/>
             </div>
