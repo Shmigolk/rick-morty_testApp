@@ -4,6 +4,7 @@ import '../App.css';
 import {nanoid} from "nanoid";
 import Pagination from "./pagination";
 import SingleCharPage from "./SingleCharPage";
+import Filter from "./Filter";
 
 export default function App() {
 
@@ -11,6 +12,11 @@ export default function App() {
     const [currentPage, setCurrentPage] = React.useState(1)
     const [singleCharShow, setSingleCharShow] = React.useState(false)
     const [singleCharPage, setSingleCharPage] = React.useState({})
+    const [filter, setFilter] =  React.useState({
+        name: '',
+        gender: '',
+        status: '',
+    })
 
     const itemsPerPage = 4
 
@@ -48,18 +54,27 @@ export default function App() {
         setSingleCharPage({})
     }
 
+    function nameFilter(){
+
+    }
+
     return (
-        !singleCharShow && <div>
+        !singleCharShow &&
+        <main>
+            <Filter/>
+            <div>
       <div className ='character-container'>
           {charactersRendering}
       </div>
             <div className="pagination">{pagination}</div>
-        </div> || <div className ='character-container'>
+            </div>
+        </main> || <div className ='character-container'>
             <SingleCharPage
                 key = {nanoid()}
                 characterData = {singleCharPage}
                 backToMain = {backToMain}
         />
+
         </div>
   )
 }

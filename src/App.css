@@ -5,8 +5,14 @@
 }
 
 body {
+  display: flex;
   background: #282c34;
   padding-top: 2em;
+  justify-content: center;
+}
+
+main {
+
 }
 
 .App-link {
@@ -97,4 +103,15 @@ body {
   border-radius: 1em;
   overflow: hidden;
   background-color: var(--clr-card);
+}
+
+.filter-component {
+  width: 500px;
+  display: flex;
+  padding: 2rem;
+}
+
+label {
+  background: #282c34;
+  color: white;
 }
