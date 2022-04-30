@@ -13,12 +13,12 @@ export default function App() {
     const [singleCharShow, setSingleCharShow] = React.useState(false)
     const [singleCharPage, setSingleCharPage] = React.useState({})
     const [filter, setFilter] =  React.useState({
-        name: '',
+        name: 'fsdaf',
         gender: '',
         status: '',
     })
 
-    const itemsPerPage = 4
+    const itemsPerPage = 5
     const genders = ["Male", "Female", "Other", "All"]
     const status = ["Alive", "Dead", "unknown"]
 
@@ -55,12 +55,18 @@ export default function App() {
         setSingleCharShow(false)
         setSingleCharPage({})
     }
+    function nameFilter(event){
+        event.target.value
+       /* console.log(filter)*/
+    }
 
     return (
         !singleCharShow &&
         <main>
             <Filter genders = {genders}
                     status = {status}
+                    nameFilter = {nameFilter}
+                    value = {filter.name}
             />
       <div className ='character-container'>
           {charactersRendering}

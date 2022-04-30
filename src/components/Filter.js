@@ -3,6 +3,8 @@ import React from 'react';
 function Filter(props) {
     const genders = props.genders.map( gender => <option value={gender}>{gender}</option>)
     const statuses = props.status.map( status => <option value={status}>{status}</option>)
+    const nameFilter = props.nameFilter
+    const value = props.value
 
     return (
         <div className= "filter-component">
@@ -10,6 +12,8 @@ function Filter(props) {
                    className=''
                    placeholder='input name'
                    name='name'
+                   value={value}
+                   onChange={nameFilter}
                    />
             <label> Gender
             <select value="Gender">
