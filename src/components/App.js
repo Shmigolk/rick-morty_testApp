@@ -4,7 +4,7 @@ import '../App.css';
 import {nanoid} from "nanoid";
 import Pagination from "./pagination";
 import SingleCharPage from "./SingleCharPage";
-import Filter from "./Filter";
+/*import Filter from "./Filter";*/
 
 export default function App() {
 
@@ -13,14 +13,14 @@ export default function App() {
     const [singleCharShow, setSingleCharShow] = React.useState(false)
     const [singleCharPage, setSingleCharPage] = React.useState({})
     const [filter, setFilter] =  React.useState({
-        name: 'fsdaf',
+        name: '',
         gender: '',
         status: '',
     })
 
     const itemsPerPage = 5
-    const genders = ["Male", "Female", "Other", "All"]
-    const status = ["Alive", "Dead", "unknown"]
+    const genders = ["Male", "Female", "Other", "All"].map( gender => <option value={gender}>{gender}</option>)
+    const status = ["Alive", "Dead", "unknown"].map( status => <option value={status}>{status}</option>)
 
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -56,18 +56,39 @@ export default function App() {
         setSingleCharPage({})
     }
     function nameFilter(event){
-        event.target.value
-       /* console.log(filter)*/
+        let {name, value} = event.target
+        setFilter( prevState => (
+            {
+                ...prevState,
+                [name]: value
+            }))
+        setCharacters(prevState => prevState.filter(char => {
+            if ( !filter.name ||char.name.includes(filter.name)) return char
+        }))
     }
-
     return (
         !singleCharShow &&
         <main>
-            <Filter genders = {genders}
-                    status = {status}
-                    nameFilter = {nameFilter}
-                    value = {filter.name}
-            />
+            <div className= "filter-component">
+                <input type="text"
+                       className=''
+                       placeholder='input name'
+                       name='name'
+                       value={filter.name}
+                       onChange={nameFilter}
+                />
+                <label> Gender
+                    <select>
+                        {genders}
+                    </select>
+                </label>
+
+                <label> Status
+                    <select>
+                        {status}
+                    </select>
+                </label>
+            </div>
       <div className ='character-container'>
           {charactersRendering}
       </div>

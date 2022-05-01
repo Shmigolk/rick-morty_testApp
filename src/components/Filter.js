@@ -13,7 +13,7 @@ function Filter(props) {
                    placeholder='input name'
                    name='name'
                    value={value}
-                   onChange={nameFilter}
+                   onChange={() => nameFilter(value)}
                    />
             <label> Gender
             <select value="Gender">
