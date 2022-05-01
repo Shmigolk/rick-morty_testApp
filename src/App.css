@@ -60,9 +60,9 @@ main {
 
 .pagination__box {
   color: azure;
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  display: block;
+  /*justify-content: center;
+  align-content: center;*/
   font-size: 2em;
   border: 2px solid var(--clr-pgntn);
   width: 2em;
@@ -105,15 +105,27 @@ main {
 }
 
 .filter-component {
-  width: 30%;
+  width: 100%;
   display: flex;
   padding: 2rem;
   justify-content: center;
   align-content: center;
+  gap: 1em;
 }
+
+.filter-component > input, label, select {
+  font-size: 1.2em;
+  height: 50px;
+}
+
+input {
+  height: 50px;
+}
+
 
 label {
   background: #282c34;
   color: white;
   display: flex;
+  text-align: center;
 }
