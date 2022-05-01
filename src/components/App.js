@@ -25,8 +25,8 @@ export default function App() {
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
             .then(res => res.json())
-            .then(res => setCharacters(res.results))
-    }, [])
+            .then(res => setCharacters(filterWrap(res.results, filter)))
+    }, [filter])
 
     const charactersRendering = characters.map( char => (
         <Character
@@ -55,6 +55,7 @@ export default function App() {
         setSingleCharShow(false)
         setSingleCharPage({})
     }
+
     function nameFilter(event){
         let {name, value} = event.target
         setFilter( prevState => (
@@ -62,10 +63,9 @@ export default function App() {
                 ...prevState,
                 [name]: value
             }))
-        setCharacters(prevState => prevState.filter(char => {
-            if ( !filter.name ||char.name.includes(filter.name)) return char
-        }))
+        setCharacters(prevState => filterWrap(prevState, filter))
     }
+
     return (
         !singleCharShow &&
         <main>
@@ -112,4 +112,8 @@ function getPaginationArray(characters, itemsPerPage = 4){
     return Arr
 }
 
-
+function filterWrap(arr, filter){
+return arr.filter(char => {
+        if ( !filter.name || char.name.toUpperCase().includes(filter.name.toUpperCase())) return char
+    })
+}
