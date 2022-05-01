@@ -107,7 +107,7 @@ main {
 .filter-component {
   width: 100%;
   display: flex;
-  padding: 2rem;
+  padding: 10px;
   justify-content: center;
   align-content: center;
   gap: 1em;
@@ -116,10 +116,26 @@ main {
 .filter-component > input, label, select {
   font-size: 1.2em;
   height: 50px;
+  background: #282c34;
+  border: 2px solid white;
+  border-radius: 10px;
 }
 
 input {
   height: 50px;
+  color: white;
+  font-size: inherit;
+}
+
+select {
+  background: #282c34;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+select:hover {
+  background: #283431;
 }
 
 
@@ -128,4 +144,6 @@ label {
   color: white;
   display: flex;
   text-align: center;
+  gap: 10px;
+  justify-content: center;
 }
