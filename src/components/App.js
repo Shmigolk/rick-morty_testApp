@@ -14,8 +14,8 @@ export default function App() {
     const [singleCharPage, setSingleCharPage] = React.useState({})
     const [filter, setFilter] =  React.useState({
         name: '',
-        gender: '',
-        status: '',
+        gender: 'All',
+        status: 'All',
     })
 
     const itemsPerPage = 4
@@ -124,7 +124,7 @@ return arr.filter(char => {
     const statusMatch = char.status === filter.status
 
         if ((!filter.name || nameContains)
-            && ((!filter.gender || filter.gender === 'All')
-                || genderMatch) && ((!filter.status || filter.status === 'All') || statusMatch)) return char
+            && ((filter.gender === 'All')
+                || genderMatch) && (filter.status === 'All' || statusMatch)) return char
     })
 }
