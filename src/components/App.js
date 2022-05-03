@@ -14,13 +14,13 @@ export default function App() {
     const [singleCharPage, setSingleCharPage] = React.useState({})
     const [filter, setFilter] =  React.useState({
         name: '',
-        gender: '',
-        status: '',
+        gender: 'All',
+        status: 'All',
     })
 
-    const itemsPerPage = 5
-    const genders = ["Male", "Female", "Other", "All"].map( gender => <option value={gender}>{gender}</option>)
-    const status = ["Alive", "Dead", "unknown"].map( status => <option value={status}>{status}</option>)
+    const itemsPerPage = 4
+    const genders = ["Male", "Female", "unknown", "All"].map( gender => <option value={gender}>{gender}</option>)
+    const status = ["Alive", "Dead", "unknown", "All"].map( status => <option value={status}>{status}</option>)
 
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -64,6 +64,7 @@ export default function App() {
                 [name]: value
             }))
         setCharacters(prevState => filterWrap(prevState, filter))
+        console.log(filter)
     }
 
     return (
@@ -78,13 +79,17 @@ export default function App() {
                        onChange={nameFilter}
                 />
                 <label> Gender
-                    <select>
+                    <select value={filter.gender}
+                            name = "gender"
+                            onChange={nameFilter}>
                         {genders}
                     </select>
                 </label>
 
                 <label> Status
-                    <select>
+                    <select value={filter.status}
+                            name="status"
+                            onChange={nameFilter}>
                         {status}
                     </select>
                 </label>
@@ -114,6 +119,12 @@ function getPaginationArray(characters, itemsPerPage = 4){
 
 function filterWrap(arr, filter){
 return arr.filter(char => {
-        if ( !filter.name || char.name.toUpperCase().includes(filter.name.toUpperCase())) return char
+    const nameContains = char.name.toUpperCase().includes(filter.name.toUpperCase())
+    const genderMatch = char.gender === filter.gender
+    const statusMatch = char.status === filter.status
+
+        if ((!filter.name || nameContains)
+            && ((filter.gender === 'All')
+                || genderMatch) && (filter.status === 'All' || statusMatch)) return char
     })
 }

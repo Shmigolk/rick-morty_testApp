@@ -11,9 +11,7 @@ body {
   justify-content: center;
 }
 
-main {
 
-}
 
 .App-link {
   color: var(--clr-pgntn);
@@ -34,7 +32,7 @@ main {
 }
 
 .character-card:hover {
-  transform: scale(1.007);
+  transform: scale(1.01);
 }
 
 .character-container {
@@ -60,9 +58,9 @@ main {
 
 .pagination__box {
   color: azure;
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  display: block;
+  /*justify-content: center;
+  align-content: center;*/
   font-size: 2em;
   border: 2px solid var(--clr-pgntn);
   width: 2em;
@@ -105,15 +103,51 @@ main {
 }
 
 .filter-component {
-  width: 30%;
+  width: 100%;
   display: flex;
-  padding: 2rem;
+  padding: 10px;
   justify-content: center;
   align-content: center;
+  gap: 1em;
+  min-width: 600px;
 }
+
+.filter-component > input, label, select {
+  font-size: 1.2em;
+  height: 50px;
+  background: #282c34;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  text-justify: auto;
+}
+
+input {
+  height: 50px;
+  color: white;
+  font-size: inherit;
+}
+
+select {
+  background: #282c34;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+select:hover {
+  background: #283431;
+}
+
 
 label {
   background: #282c34;
   color: white;
   display: flex;
+  text-align: center;
+  gap: 10px;
+  justify-content: center;
+  height: 50px;
 }
