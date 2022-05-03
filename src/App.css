@@ -11,9 +11,7 @@ body {
   justify-content: center;
 }
 
-main {
 
-}
 
 .App-link {
   color: var(--clr-pgntn);
@@ -34,7 +32,7 @@ main {
 }
 
 .character-card:hover {
-  transform: scale(1.007);
+  transform: scale(1.01);
 }
 
 .character-container {
@@ -111,6 +109,7 @@ main {
   justify-content: center;
   align-content: center;
   gap: 1em;
+  min-width: 600px;
 }
 
 .filter-component > input, label, select {
@@ -119,6 +118,10 @@ main {
   background: #282c34;
   border: 2px solid white;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  text-justify: auto;
 }
 
 input {
