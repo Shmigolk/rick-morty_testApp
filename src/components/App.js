@@ -72,7 +72,7 @@ export default function App() {
     }
 
     return (
-        !singleCharShow &&
+        (!singleCharShow &&
         <main>
             <div className= "filter-component">
                 <input type="text"
@@ -102,14 +102,14 @@ export default function App() {
           {charactersRendering}
       </div>
             <div className="pagination">{pagination}</div>
-        </main> || <div className ='character-container'>
+        </main>) || (<div className ='character-container'>
             <SingleCharPage
                 key = {nanoid()}
                 characterData = {singleCharPage}
                 backToMain = {backToMain}
         />
 
-        </div>
+        </div>)
   )
 }
 /*auxiliary functions*/
