@@ -4,6 +4,7 @@ function Filter(props) {
 
     const name = props.filter.name
     const gender = props.filter.gender
+    const status = props.filter.status
     const genders = ["Male", "Female", "unknown", "All"].map( gender => <option value={gender}>{gender}</option>)
     const statuses = ["Alive", "Dead", "unknown", "All"].map( status => <option value={status}>{status}</option>)
 
@@ -26,7 +27,7 @@ function Filter(props) {
             </label>
 
             <label> Status
-                <select value={statuses}
+                <select value={status}
                         onChange={props.nameFilter}
                         name="status">
                     {statuses}

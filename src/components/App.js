@@ -74,6 +74,7 @@ export default function App() {
             <Filter
             filter = {filter}
             nameFilter = {nameFilter}
+            key = {nanoid()}
             />
       <div className ='character-container'>
           {charactersRendering}
