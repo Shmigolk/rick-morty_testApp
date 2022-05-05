@@ -4,8 +4,7 @@ import '../App.css';
 import {nanoid} from "nanoid";
 import Pagination from "./pagination";
 import SingleCharPage from "./SingleCharPage";
-
-/*import Filter from "./Filter";*/
+import Filter from "./Filter";
 
 export default function App() {
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
 function Filter(props) {
-    const genders = props.genders.map( gender => <option value={gender}>{gender}</option>)
-    const statuses = props.status.map( status => <option value={status}>{status}</option>)
+    const genders = props.genders
+    const statuses = props.status
     const nameFilter = props.nameFilter
     const value = props.value
 
