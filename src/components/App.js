@@ -69,7 +69,6 @@ export default function App() {
                 [name]: value
             }))
         setCharacters(prevState => filterWrap(prevState, filter))
-        console.log(filter)
     }
 
     return (
