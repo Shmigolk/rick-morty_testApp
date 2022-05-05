@@ -4,7 +4,7 @@ import '../App.css';
 import {nanoid} from "nanoid";
 import Pagination from "./pagination";
 import SingleCharPage from "./SingleCharPage";
-import {logDOM} from "@testing-library/react";
+
 /*import Filter from "./Filter";*/
 
 export default function App() {
