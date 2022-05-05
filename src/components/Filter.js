@@ -1,10 +1,12 @@
 import React from 'react';
 
 function Filter(props) {
+
+    const name = props.filter.name
+    const gender = props.filter.gender
+    const status = props.filter.status
+    const statuses = props.statuses
     const genders = props.genders
-    const statuses = props.status
-    const nameFilter = props.nameFilter
-    const value = props.value
 
     return (
         <div className= "filter-component">
@@ -12,17 +14,21 @@ function Filter(props) {
                    className=''
                    placeholder='input name'
                    name='name'
-                   value={value}
-                   onChange={() => nameFilter(value)}
+                   value={name}
+                   onChange={props.nameFilter}
                    />
             <label> Gender
-            <select value="Gender">
-                {genders}
-            </select>
+                <select value={gender}
+                        onChange={props.nameFilter}
+                        name = {gender}>
+                   {genders}
+                </select>
             </label>
 
             <label> Status
-                <select value="Gender">
+                <select value={status}
+                        onChange={props.nameFilter}
+                        name={status}>
                     {statuses}
                 </select>
             </label>

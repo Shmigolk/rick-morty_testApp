@@ -17,7 +17,7 @@ export default function App() {
         gender: 'All',
         status: 'All',
     })
-
+    //todo: try to get genders from existed characters array
     const itemsPerPage = 4
     const genders = ["Male", "Female", "unknown", "All"].map( gender => <option value={gender}>{gender}</option>)
     const status = ["Alive", "Dead", "unknown", "All"].map( status => <option value={status}>{status}</option>)
@@ -69,10 +69,16 @@ export default function App() {
             }))
         setCharacters(prevState => filterWrap(prevState, filter))
     }
-
+    //todo: Try to render filter prop
     return (
         (!singleCharShow &&
         <main>
+            <Filter
+            filter = {filter}
+            statuses = {status}
+            genders = {genders}
+            nameFilter = {nameFilter}
+            />
             <div className= "filter-component">
                 <input type="text"
                        className=''
