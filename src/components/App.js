@@ -79,30 +79,6 @@ export default function App() {
             genders = {genders}
             nameFilter = {nameFilter}
             />
-            <div className= "filter-component">
-                <input type="text"
-                       className=''
-                       placeholder='input name'
-                       name='name'
-                       value={filter.name}
-                       onChange={nameFilter}
-                />
-                <label> Gender
-                    <select value={filter.gender}
-                            name = "gender"
-                            onChange={nameFilter}>
-                        {genders}
-                    </select>
-                </label>
-
-                <label> Status
-                    <select value={filter.status}
-                            name="status"
-                            onChange={nameFilter}>
-                        {status}
-                    </select>
-                </label>
-            </div>
       <div className ='character-container'>
           {charactersRendering}
       </div>

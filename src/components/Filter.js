@@ -17,10 +17,11 @@ function Filter(props) {
                    value={name}
                    onChange={props.nameFilter}
                    />
+
             <label> Gender
                 <select value={gender}
                         onChange={props.nameFilter}
-                        name = {gender}>
+                        name = "gender">
                    {genders}
                 </select>
             </label>
@@ -28,7 +29,7 @@ function Filter(props) {
             <label> Status
                 <select value={status}
                         onChange={props.nameFilter}
-                        name={status}>
+                        name="status">
                     {statuses}
                 </select>
             </label>
