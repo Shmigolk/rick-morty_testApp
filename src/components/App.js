@@ -17,10 +17,8 @@ export default function App() {
         gender: 'All',
         status: 'All',
     })
-    //todo: try to get genders from existed characters array
+
     const itemsPerPage = 4
-    const genders = ["Male", "Female", "unknown", "All"].map( gender => <option value={gender}>{gender}</option>)
-    const status = ["Alive", "Dead", "unknown", "All"].map( status => <option value={status}>{status}</option>)
 
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -69,14 +67,12 @@ export default function App() {
             }))
         setCharacters(prevState => filterWrap(prevState, filter))
     }
-    //todo: Try to render filter prop
+
     return (
         (!singleCharShow &&
         <main>
             <Filter
             filter = {filter}
-            statuses = {status}
-            genders = {genders}
             nameFilter = {nameFilter}
             />
       <div className ='character-container'>
@@ -89,7 +85,6 @@ export default function App() {
                 characterData = {singleCharPage}
                 backToMain = {backToMain}
         />
-
         </div>)
   )
 }
@@ -107,7 +102,6 @@ return arr.filter(char => {
     const nameContains = char.name.toUpperCase().includes(filter.name.toUpperCase())
     const genderMatch = char.gender === filter.gender
     const statusMatch = char.status === filter.status
-
         if ((!filter.name || nameContains)
             && ((filter.gender === 'All')
                 || genderMatch) && (filter.status === 'All' || statusMatch)) return char
