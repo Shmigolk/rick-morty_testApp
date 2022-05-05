@@ -4,6 +4,7 @@ import '../App.css';
 import {nanoid} from "nanoid";
 import Pagination from "./pagination";
 import SingleCharPage from "./SingleCharPage";
+import {logDOM} from "@testing-library/react";
 /*import Filter from "./Filter";*/
 
 export default function App() {
@@ -37,10 +38,14 @@ export default function App() {
         )).slice(itemsPerPage * (currentPage - 1), currentPage * itemsPerPage)
 
     const pagination = getPaginationArray(characters, itemsPerPage)
-        .map( pageNumber => <Pagination
-            key = {pageNumber}
-            pageNumber = {pageNumber}
-            changePageNumber = {() => changePageNumber(pageNumber)}/>)
+        .map( pageNumber => {
+            const styles = {opacity: pageNumber===currentPage? "30%" : '100%'}
+            return <Pagination
+                key={pageNumber}
+                pageNumber={pageNumber}
+                style={styles}
+                changePageNumber={() => changePageNumber(pageNumber)}/>
+        })
 
     function showCharPage(item){
         setSingleCharShow(true)
