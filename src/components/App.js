@@ -4,7 +4,7 @@ import '../App.css';
 import {nanoid} from "nanoid";
 import Pagination from "./pagination";
 import SingleCharPage from "./SingleCharPage";
-/*import Filter from "./Filter";*/
+import Filter from "./Filter";
 
 export default function App() {
 
@@ -19,8 +19,6 @@ export default function App() {
     })
 
     const itemsPerPage = 4
-    const genders = ["Male", "Female", "unknown", "All"].map( gender => <option value={gender}>{gender}</option>)
-    const status = ["Alive", "Dead", "unknown", "All"].map( status => <option value={status}>{status}</option>)
 
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -37,10 +35,14 @@ export default function App() {
         )).slice(itemsPerPage * (currentPage - 1), currentPage * itemsPerPage)
 
     const pagination = getPaginationArray(characters, itemsPerPage)
-        .map( pageNumber => <Pagination
-            key = {pageNumber}
-            pageNumber = {pageNumber}
-            changePageNumber = {() => changePageNumber(pageNumber)}/>)
+        .map( pageNumber => {
+            const styles = {opacity: pageNumber===currentPage? "30%" : '100%'}
+            return <Pagination
+                key={pageNumber}
+                pageNumber={pageNumber}
+                style={styles}
+                changePageNumber={() => changePageNumber(pageNumber)}/>
+        })
 
     function showCharPage(item){
         setSingleCharShow(true)
@@ -64,48 +66,27 @@ export default function App() {
                 [name]: value
             }))
         setCharacters(prevState => filterWrap(prevState, filter))
-        console.log(filter)
     }
 
     return (
-        !singleCharShow &&
+        (!singleCharShow &&
         <main>
-            <div className= "filter-component">
-                <input type="text"
-                       className=''
-                       placeholder='input name'
-                       name='name'
-                       value={filter.name}
-                       onChange={nameFilter}
-                />
-                <label> Gender
-                    <select value={filter.gender}
-                            name = "gender"
-                            onChange={nameFilter}>
-                        {genders}
-                    </select>
-                </label>
-
-                <label> Status
-                    <select value={filter.status}
-                            name="status"
-                            onChange={nameFilter}>
-                        {status}
-                    </select>
-                </label>
-            </div>
+            <Filter
+            filter = {filter}
+            nameFilter = {nameFilter}
+            key = {nanoid()}
+            />
       <div className ='character-container'>
           {charactersRendering}
       </div>
             <div className="pagination">{pagination}</div>
-        </main> || <div className ='character-container'>
+        </main>) || (<div className ='character-container'>
             <SingleCharPage
                 key = {nanoid()}
                 characterData = {singleCharPage}
                 backToMain = {backToMain}
         />
-
-        </div>
+        </div>)
   )
 }
 /*auxiliary functions*/
@@ -122,7 +103,6 @@ return arr.filter(char => {
     const nameContains = char.name.toUpperCase().includes(filter.name.toUpperCase())
     const genderMatch = char.gender === filter.gender
     const statusMatch = char.status === filter.status
-
         if ((!filter.name || nameContains)
             && ((filter.gender === 'All')
                 || genderMatch) && (filter.status === 'All' || statusMatch)) return char

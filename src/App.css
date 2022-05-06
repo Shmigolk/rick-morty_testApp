@@ -33,6 +33,7 @@ body {
 
 .character-card:hover {
   transform: scale(1.01);
+  /*border: 5px solid white;*/
 }
 
 .character-container {
