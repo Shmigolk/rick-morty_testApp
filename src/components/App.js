@@ -72,9 +72,9 @@ export default function App() {
         (!singleCharShow &&
         <main>
             <Filter
+                key = {nanoid()}
                 filter = {filter}
                 nameFilter = {nameFilter}
-                key = {nanoid()}
             />
       <div className ='character-container'>
           {charactersRendering}
@@ -100,9 +100,11 @@ function getPaginationArray(characters, itemsPerPage = 4){
 
 function filterWrap(arr, filter){
 return arr.filter(char => {
+
     const nameContains = char.name.toUpperCase().includes(filter.name.toUpperCase())
     const genderMatch = char.gender === filter.gender
     const statusMatch = char.status === filter.status
+
         if ((!filter.name || nameContains)
             && ((filter.gender === 'All')
                 || genderMatch) && (filter.status === 'All' || statusMatch)) return char
