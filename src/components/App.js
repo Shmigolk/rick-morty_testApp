@@ -72,9 +72,9 @@ export default function App() {
         (!singleCharShow &&
         <main>
             <Filter
-            filter = {filter}
-            nameFilter = {nameFilter}
-            key = {nanoid()}
+                filter = {filter}
+                nameFilter = {nameFilter}
+                key = {nanoid()}
             />
       <div className ='character-container'>
           {charactersRendering}
