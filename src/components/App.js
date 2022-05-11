@@ -89,7 +89,7 @@ export default function App() {
         </div>)
   )
 }
-/*auxiliary functions*/
+
 function getPaginationArray(characters, itemsPerPage = 4){
     let Arr = []
     for (let page = 1; page <= Math.ceil(characters.length / itemsPerPage); page ++){

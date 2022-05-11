@@ -29,6 +29,10 @@ body {
   cursor: pointer;
 }
 
+.character-card > h2{
+  font-family: 'Creepster', cursive;
+}
+
 .character-card:hover {
   transform: scale(1.01);
   /*border: 5px solid white;*/
