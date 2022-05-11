@@ -11,8 +11,6 @@ body {
   justify-content: center;
 }
 
-
-
 .App-link {
   color: var(--clr-pgntn);
   border: 2px solid var(--clr-pgntn);
@@ -29,6 +27,10 @@ body {
   overflow: hidden;
   background-color: var(--clr-card);
   cursor: pointer;
+}
+
+.character-card > h2{
+  font-family: 'Creepster', cursive;
 }
 
 .character-card:hover {

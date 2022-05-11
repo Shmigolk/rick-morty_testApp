@@ -1,12 +1,13 @@
 import React from 'react';
+import {nanoid} from "nanoid";
 
 function Filter(props) {
 
     const name = props.filter.name
     const gender = props.filter.gender
     const status = props.filter.status
-    const genders = ["Male", "Female", "unknown", "All"].map( gender => <option value={gender}>{gender}</option>)
-    const statuses = ["Alive", "Dead", "unknown", "All"].map( status => <option value={status}>{status}</option>)
+    const genders = ["Male", "Female", "unknown", "All"].map( gender => <option key = {nanoid()} value={gender}>{gender}</option>)
+    const statuses = ["Alive", "Dead", "unknown", "All"].map( status => <option key = {nanoid()} value={status}>{status}</option>)
 
     return (
         <div className= "filter-component">
