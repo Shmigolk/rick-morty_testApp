@@ -16,6 +16,10 @@ body {
   border: 2px solid var(--clr-pgntn);
 }
 
+h2, h3 {
+  margin: 5px 0;
+}
+
 .character-card {
   display: flex;
   flex-direction: column;
@@ -50,7 +54,7 @@ body {
 }
 
 .pagination {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -61,7 +65,7 @@ body {
   color: azure;
   font-size: 2em;
   border: 2px solid var(--clr-pgntn);
-  padding: 0 12px;
+  padding: 5px 17px;
   cursor: pointer;
   border-radius: 10%;
 }
@@ -94,6 +98,7 @@ body {
   border-radius: 1em;
   overflow: hidden;
   background-color: var(--clr-card);
+  width: 300px;
 }
 
 .filter-component {
