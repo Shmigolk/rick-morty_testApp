@@ -125,6 +125,8 @@ select {
   border: none;
   cursor: pointer;
   color: white;
+  font-size: 1.5rem;
+  width: 5em;
 }
 
 select:hover {
@@ -132,9 +134,7 @@ select:hover {
 }
 
 
-select {
-    padding-top: 10px;
-}
+
 
 .filter-component__selector {
   background: #282c34;
