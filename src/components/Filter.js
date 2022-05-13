@@ -11,30 +11,32 @@ function Filter(props) {
 
     return (
         <div className= "filter-component">
-            <input type="text"
-                   className=''
-                   placeholder='input name'
-                   name='name'
-                   value={name}
-                   onChange={props.nameFilter}
-                   />
+            <div className="filter-component__selector">
+                <input type="text"
+                       className=''
+                       placeholder='input name'
+                       name='name'
+                       value={name}
+                       onChange={props.nameFilter}
+                       />
+            </div>
 
-            <label> Gender
+            <div className="filter-component__selector"> <p>Gender</p>
                 <select value={gender}
                         onChange={props.nameFilter}
                         name = "gender">
                    {genders}
                 </select>
-            </label>
+            </div>
 
-            <label> Status
+            <div className="filter-component__selector">
+            <p>Status</p>
                 <select value={status}
                         onChange={props.nameFilter}
                         name="status">
                     {statuses}
                 </select>
-            </label>
-
+            </div>
         </div>
     )
 }
