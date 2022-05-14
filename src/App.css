@@ -10,8 +10,7 @@ body {
   background: #282c34;
   padding-top: 2em;
   align-items: center;
-  /*justify-content: center;*/
-
+  text-align: center;
 }
 
 .App-link {
@@ -52,7 +51,6 @@ h2, h3 {
   flex-wrap: wrap;
   gap: 1em;
   justify-content: center;
-
   }
 
 .character-card__avatar {
@@ -103,7 +101,6 @@ h2, h3 {
   margin-bottom: 1em;
   width: 100%;
   display: flex;
-  padding: 10px;
   justify-content: center;
   align-content: center;
   gap: 1em;
