@@ -8,7 +8,7 @@ export default function Character(props) {
     const status = props.characterData.status
 
     return (
-        <section className="character-card"
+        <section className="character-card character-card__hover"
         onClick={props.showCharPage}>
             <div className="character-card__avatar">
                 <img src={avatarUrl} alt='some text'/>

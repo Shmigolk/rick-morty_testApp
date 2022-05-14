@@ -23,12 +23,17 @@ h2, h3 {
 .character-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 300px;
   text-align: center;
-  margin: auto auto;
   border-radius: 1em;
   overflow: hidden;
   background-color: var(--clr-card);
+
+}
+
+.character-card__hover {
   cursor: pointer;
 }
 
@@ -36,7 +41,7 @@ h2, h3 {
   font-family: 'Creepster', cursive;
 }
 
-.character-card:hover {
+.character-card__hover:hover {
   transform: scale(1.01);
 
 }
@@ -54,7 +59,7 @@ h2, h3 {
 }
 
 .pagination {
-  margin-top: 1.5rem;
+  margin: 1.5em;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -90,18 +95,10 @@ h2, h3 {
   transform: scale(1.03);
 }
 
-.character-single-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border-radius: 1em;
-  overflow: hidden;
-  background-color: var(--clr-card);
-  width: 300px;
-}
+
 
 .filter-component {
+  margin-bottom: 1em;
   width: 100%;
   display: flex;
   padding: 10px;
@@ -132,9 +129,6 @@ select {
 select:hover {
   background: #283431;
 }
-
-
-
 
 .filter-component__selector {
   background: #282c34;
