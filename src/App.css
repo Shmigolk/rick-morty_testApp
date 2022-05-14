@@ -16,16 +16,24 @@ body {
   border: 2px solid var(--clr-pgntn);
 }
 
+h2, h3 {
+  margin: 5px 0;
+}
+
 .character-card {
-  width: 300px;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  width: 300px;
   text-align: center;
-  margin: auto auto;
-  /*border: solid var(--clr-card);*/
   border-radius: 1em;
   overflow: hidden;
   background-color: var(--clr-card);
+
+}
+
+.character-card__hover {
   cursor: pointer;
 }
 
@@ -33,16 +41,16 @@ body {
   font-family: 'Creepster', cursive;
 }
 
-.character-card:hover {
+.character-card__hover:hover {
   transform: scale(1.01);
-  /*border: 5px solid white;*/
+
 }
 
 .character-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
-  margin: auto;
+  justify-content: space-around;
   }
 
 .character-card__avatar {
@@ -51,24 +59,18 @@ body {
 }
 
 .pagination {
-  margin-top: 2rem;
+  margin: 1.5em;
   display: flex;
   justify-content: center;
   align-content: center;
   gap: 1em;
-  padding: 5px;
 }
 
 .pagination__box {
   color: azure;
-  display: block;
-  /*justify-content: center;
-  align-content: center;*/
   font-size: 2em;
   border: 2px solid var(--clr-pgntn);
-  width: 2em;
-  height: 2em;
-  text-align: center;
+  padding: 5px 17px;
   cursor: pointer;
   border-radius: 10%;
 }
@@ -82,9 +84,8 @@ body {
   font-size: 1em;
   margin-bottom: 10px;
   border-radius: 10px;
-  height: 40px;
+  padding: 10px 25px;
   font-weight: bold;
-  /*border: none;*/
   border: 3px solid white;
   cursor: pointer;
 }
@@ -94,18 +95,10 @@ body {
   transform: scale(1.03);
 }
 
-.character-single-container {
-  width: 300px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: auto auto;
-  border-radius: 1em;
-  overflow: hidden;
-  background-color: var(--clr-card);
-}
+
 
 .filter-component {
+  margin-bottom: 1em;
   width: 100%;
   display: flex;
   padding: 10px;
@@ -115,22 +108,13 @@ body {
   min-width: 600px;
 }
 
-.filter-component > input, label, select {
-  font-size: 1.2em;
-  height: 50px;
-  background: #282c34;
-  border: 2px solid white;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  text-justify: auto;
-}
-
 input {
   height: 50px;
   color: white;
   font-size: inherit;
+  background: inherit;
+  border: none;
+
 }
 
 select {
@@ -138,19 +122,21 @@ select {
   border: none;
   cursor: pointer;
   color: white;
+  font-size: 1.5rem;
+  width: 5em;
 }
 
 select:hover {
   background: #283431;
 }
 
-
-label {
+.filter-component__selector {
   background: #282c34;
   color: white;
   display: flex;
-  text-align: center;
-  gap: 10px;
   justify-content: center;
-  height: 50px;
+  border: 3px solid white;
+  border-radius: 10px;
+  gap: 5px;
+  overflow: hidden;
 }
