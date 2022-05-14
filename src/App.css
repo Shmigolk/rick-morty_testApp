@@ -15,7 +15,6 @@ body {
   color: var(--clr-pgntn);
   border: 2px solid var(--clr-pgntn);
 }
-
 h2, h3 {
   margin: 5px 0;
 }
@@ -23,7 +22,6 @@ h2, h3 {
 .character-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   width: 300px;
   text-align: center;
@@ -50,7 +48,7 @@ h2, h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
-  justify-content: space-around;
+
   }
 
 .character-card__avatar {
