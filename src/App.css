@@ -6,9 +6,12 @@
 
 body {
   display: flex;
+  flex-direction: column;
   background: #282c34;
   padding-top: 2em;
-  justify-content: center;
+  align-items: center;
+  /*justify-content: center;*/
+
 }
 
 .App-link {
@@ -48,6 +51,7 @@ h2, h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+  justify-content: center;
 
   }
 
