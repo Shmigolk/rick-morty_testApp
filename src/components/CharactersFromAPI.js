@@ -11,11 +11,8 @@ export default function Favorites() {
     const [prevPage, setPrevPage] = React.useState('')
     const [singleCharShow, setSingleCharShow] = React.useState(false)
     const [singleCharPage, setSingleCharPage] = React.useState({})
-    const [filter, setFilter] =  React.useState({
-        name: '',
-        gender: 'All',
-        status: 'All',
-    })
+    const [currentPage, setCurrentPage] = React.useState(1)
+
 
     function getCharactersPage(url){
          fetch(url)
@@ -51,24 +48,28 @@ export default function Favorites() {
     function flipToNext(){
         if (nextPage){
             getCharactersPage(nextPage)
+            setCurrentPage(prev => ++prev)
         }
     }
 
     function flipToPrev(){
         if (prevPage){
             getCharactersPage(prevPage)
+            setCurrentPage(prev => --prev)
         }
     }
 
     return (
         (!singleCharShow &&
             <main>
+
                 <div className ='character-container'>
                     {charactersRendering}
-                    <div className="btn-container">
-                        <button onClick={flipToPrev}>Prev</button>
-                        <button onClick={flipToNext}>Next</button>
-                    </div>
+                </div>
+                <div className="btn-container">
+                    <button onClick={flipToPrev}>Prev</button>
+                    <p>{currentPage}</p>
+                    <button onClick={flipToNext}>Next</button>
                 </div>
             </main>) || (
                 <div className ='character-container'>

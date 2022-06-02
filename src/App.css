@@ -8,13 +8,13 @@
   --clr-btn: greenyellow;
 }
 
-body {
+main {
   display: flex;
   flex-direction: column;
   background: #282c34;
   padding-top: 2em;
   text-align: center;
-  justify-content: center;
+  justify-content: space-between;
   color: white;
   height: 100vh;
 }
@@ -51,6 +51,14 @@ p {
 .character-card__hover {
   cursor: pointer;
 }
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 1em;
+
+  }
 
 /*.character-card h2{*/
 /*  font-family: 'Creepster', cursive;*/
