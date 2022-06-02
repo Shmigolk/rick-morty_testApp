@@ -1,12 +1,86 @@
 import React from "react";
+import Character from "./Character";
+import '../App.css';
+import {nanoid} from "nanoid";
+import SingleCharPage from "./SingleCharPage";
 
-async function getCharactersData() {
-    const resp = await fetch(`https://rickandmortyapi.com/api/character/?page1`)
-    const data = await resp.json()
-    console.log(data)
+
+
+export default function Favorites() {
+    const [characters, setCharacters] = React.useState([])
+    const [nextPage, setNextPage] = React.useState('')
+    const [prevPage, setPrevPage] = React.useState('')
+    const [singleCharShow, setSingleCharShow] = React.useState(false)
+    const [singleCharPage, setSingleCharPage] = React.useState({})
+
+    function getCharactersPage(url){
+         fetch(url)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                setCharacters(res.results)
+                setNextPage(res.info.next)
+                setPrevPage(res.info.prev)
+            })}
+
+
+    React.useEffect( () => {
+        getCharactersPage("https://rickandmortyapi.com/api/character?page=2")
+    }, [])
+
+    const charactersRendering = characters.map( char => (
+        <Character
+            key = {nanoid()}
+            characterData = {char}
+            showCharPage = {() => showCharPage(char)}
+        />
+    ))
+
+    function showCharPage(item){
+        setSingleCharShow(true)
+        setSingleCharPage(item)
+    }
+
+
+    function backToMain(){
+        setSingleCharShow(false)
+        setSingleCharPage({})
+    }
+
+    function flipToNext(){
+        if (nextPage){
+            getCharactersPage(nextPage)
+        }
+    }
+
+    function flipToPrev(){
+        if (prevPage){
+            getCharactersPage(prevPage)
+        }
+    }
+
+
+    return (
+        (!singleCharShow &&
+            <main>
+                <div className ='character-container'>
+                    {charactersRendering}
+                    <div className="btn-container">
+                        <button onClick={flipToPrev}>Prev</button>
+                        <button onClick={flipToNext}>Next</button>
+                    </div>
+                </div>
+            </main>) || (
+                <div className ='character-container'>
+                    <SingleCharPage
+                        key = {nanoid()}
+                        characterData = {singleCharPage}
+                        backToMain = {backToMain}
+                    />
+                </div>)
+
+    )
 }
 
-export default function  CharactersFromAPI(){
-    getCharactersData()
-    return <p>Hey, i'm a test component</p>
-}
+
+
