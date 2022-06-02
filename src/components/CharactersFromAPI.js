@@ -5,14 +5,17 @@ import {nanoid} from "nanoid";
 import SingleCharPage from "./SingleCharPage";
 const INITIAL_URL = "https://rickandmortyapi.com/api/character"
 
-
-
 export default function Favorites() {
     const [characters, setCharacters] = React.useState([])
     const [nextPage, setNextPage] = React.useState('')
     const [prevPage, setPrevPage] = React.useState('')
     const [singleCharShow, setSingleCharShow] = React.useState(false)
     const [singleCharPage, setSingleCharPage] = React.useState({})
+    const [filter, setFilter] =  React.useState({
+        name: '',
+        gender: 'All',
+        status: 'All',
+    })
 
     function getCharactersPage(url){
          fetch(url)
@@ -22,7 +25,6 @@ export default function Favorites() {
                 setNextPage(res.info.next)
                 setPrevPage(res.info.prev)
             })}
-
 
     React.useEffect( () => {
         getCharactersPage(INITIAL_URL)
@@ -41,7 +43,6 @@ export default function Favorites() {
         setSingleCharPage(item)
     }
 
-
     function backToMain(){
         setSingleCharShow(false)
         setSingleCharPage({})
@@ -58,7 +59,6 @@ export default function Favorites() {
             getCharactersPage(prevPage)
         }
     }
-
 
     return (
         (!singleCharShow &&
