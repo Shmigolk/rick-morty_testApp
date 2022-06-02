@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root{
   --clr-card: #19c7c7;
   --clr-pgntn: azure;
@@ -9,37 +13,44 @@ body {
   flex-direction: column;
   background: #282c34;
   padding-top: 2em;
-  align-items: center;
+
   text-align: center;
+  color: white;
 }
 
-h2, h3 {
-  margin: 5px 0;
-}
-
-img {
-  width: 100%;
+h2, h3, p {
+  margin: 0;
 }
 
 .character-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  text-align: center;
-  border-radius: 1em;
-  overflow: hidden;
-  background-color: var(--clr-card);
-  padding-bottom: 1em;
+  padding: 0;
+  width: 10vw;
+  min-width: 100px;
+  border: 5px solid white;
+  border-radius: .5em;
 }
+
+.character-card__avatar > img {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.character-card__avatar {
+
+}
+
 
 .character-card__hover {
   cursor: pointer;
 }
 
-.character-card h2{
-  font-family: 'Creepster', cursive;
-}
+/*.character-card h2{*/
+/*  font-family: 'Creepster', cursive;*/
+/*}*/
 
 .character-card__hover:hover {
   transform: scale(1.01);
@@ -52,10 +63,7 @@ img {
   justify-content: center;
   }
 
-.character-card__avatar {
-  width: 300px;
-  margin: 0 auto;
-}
+
 
 .pagination {
   margin: 1.5em;

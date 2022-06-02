@@ -6,7 +6,9 @@ import Pagination from "./pagination";
 import SingleCharPage from "./SingleCharPage";
 import Filter from "./Filter";
 
-export default function App() {
+const ITEMS_PER_PAGE = 20
+
+export default function Favorites() {
 
     const [characters, setCharacters] = React.useState([])
     const [currentPage, setCurrentPage] = React.useState(1)
@@ -18,7 +20,7 @@ export default function App() {
         status: 'All',
     })
 
-    const itemsPerPage = 4
+
 
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -32,9 +34,9 @@ export default function App() {
             characterData = {char}
             showCharPage = {() => showCharPage(char)}
         />
-        )).slice(itemsPerPage * (currentPage - 1), currentPage * itemsPerPage)
+        )).slice(ITEMS_PER_PAGE * (currentPage - 1), currentPage * ITEMS_PER_PAGE)
 
-    const pagination = getPaginationArray(characters, itemsPerPage)
+    const pagination = getPaginationArray(characters, ITEMS_PER_PAGE)
         .map( pageNumber => {
             const styles = {opacity: pageNumber===currentPage? "30%" : '100%'}
             return <Pagination
