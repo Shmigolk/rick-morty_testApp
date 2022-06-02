@@ -5,7 +5,6 @@ export default function Character(props) {
     const {image, name, gender, status} = props.characterData
 
     return (
-        <div>
             <section className="character-card character-card__hover"
             onClick={props.showCharPage}>
                 <div className="character-card__avatar">
@@ -15,6 +14,5 @@ export default function Character(props) {
                 <p>Gender: {gender}</p>
                 <p>Status: {status}</p>
             </section>
-        </div>
     )
 }

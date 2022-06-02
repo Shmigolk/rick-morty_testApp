@@ -3,6 +3,7 @@ import Character from "./Character";
 import '../App.css';
 import {nanoid} from "nanoid";
 import SingleCharPage from "./SingleCharPage";
+const INITIAL_URL = "https://rickandmortyapi.com/api/character"
 
 
 
@@ -17,7 +18,6 @@ export default function Favorites() {
          fetch(url)
             .then(res => res.json())
             .then(res => {
-                console.log(res)
                 setCharacters(res.results)
                 setNextPage(res.info.next)
                 setPrevPage(res.info.prev)
@@ -25,7 +25,7 @@ export default function Favorites() {
 
 
     React.useEffect( () => {
-        getCharactersPage("https://rickandmortyapi.com/api/character?page=2")
+        getCharactersPage(INITIAL_URL)
     }, [])
 
     const charactersRendering = characters.map( char => (
