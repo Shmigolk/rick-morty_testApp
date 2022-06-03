@@ -1,29 +1,28 @@
 import React from 'react';
 import {nanoid} from "nanoid";
 
-function Filter(props) {
+function Filter({filter, nameFilter}) {
 
-    const name = props.filter.name
-    const gender = props.filter.gender
-    const status = props.filter.status
-    const genders = ["Male", "Female", "unknown", "All"].map( gender => <option key = {nanoid()} value={gender}>{gender}</option>)
-    const statuses = ["Alive", "Dead", "unknown", "All"].map( status => <option key = {nanoid()} value={status}>{status}</option>)
+    const {name, gender, status} = filter
+
+    const genders = ["Male", "Female", "Unknown", "All"].map( gender => <option key = {nanoid()} value={gender}>{gender}</option>)
+    const statuses = ["Alive", "Dead", "Unknown", "All"].map( status => <option key = {nanoid()} value={status}>{status}</option>)
 
     return (
         <div className= "filter-component">
-            <div className="filter-component__selector">
-                <input type="text"
-                       className=''
+                <input
+                       className="filter-component__selector"
+                       type="text"
                        placeholder='input name'
                        name='name'
                        value={name}
-                       onChange={props.nameFilter}
+                       onChange={nameFilter}
+                       autoFocus
                        />
-            </div>
 
             <div className="filter-component__selector"> <p>Gender</p>
                 <select value={gender}
-                        onChange={props.nameFilter}
+                        onChange={nameFilter}
                         name = "gender">
                    {genders}
                 </select>
@@ -32,7 +31,7 @@ function Filter(props) {
             <div className="filter-component__selector">
             <p>Status</p>
                 <select value={status}
-                        onChange={props.nameFilter}
+                        onChange={nameFilter}
                         name="status">
                     {statuses}
                 </select>

@@ -3,7 +3,8 @@ import Character from "./Character";
 import '../App.css';
 import {nanoid} from "nanoid";
 import SingleCharPage from "./SingleCharPage";
-const INITIAL_URL = "https://rickandmortyapi.com/api/character"
+import Filter from "./Filter";
+let INITIAL_URL = "https://rickandmortyapi.com/api/character/?page=1"
 
 export default function Favorites() {
     const [characters, setCharacters] = React.useState([])
@@ -12,20 +13,37 @@ export default function Favorites() {
     const [singleCharShow, setSingleCharShow] = React.useState(false)
     const [singleCharPage, setSingleCharPage] = React.useState({})
     const [currentPage, setCurrentPage] = React.useState(1)
+    const [filter, setFilter] =  React.useState({
+        name: '',
+        gender: 'All',
+        status: 'All',
+    })
 
 
     function getCharactersPage(url){
+
+        const {name, gender, status} = filter
+
+        if (name) url += `&name=${name}`
+        if (gender !== 'All') url += `&gender=${gender}`
+        if (status !== 'All') url += `&status=${status}`
+
          fetch(url)
-            .then(res => res.json())
             .then(res => {
-                setCharacters(res.results)
-                setNextPage(res.info.next)
-                setPrevPage(res.info.prev)
-            })}
+                if (res.ok) return res.json()
+                }
+            )
+            .then(data => {
+
+                setCharacters(data.results)
+                setNextPage(data.info.next)
+                setPrevPage(data.info.prev)
+            })
+        }
 
     React.useEffect( () => {
         getCharactersPage(INITIAL_URL)
-    }, [])
+    }, [filter])
 
     const charactersRendering = characters.map( char => (
         <Character
@@ -59,10 +77,23 @@ export default function Favorites() {
         }
     }
 
+    function nameFilter(event){
+        let {name, value} = event.target
+        setFilter( prevState => (
+            {
+                ...prevState,
+                [name]: value
+            }))
+    }
+
     return (
         (!singleCharShow &&
             <main>
-
+                <Filter
+                    key = {nanoid()}
+                    filter = {filter}
+                    nameFilter = {nameFilter}
+                />
                 <div className ='character-container'>
                     {charactersRendering}
                 </div>
@@ -72,13 +103,15 @@ export default function Favorites() {
                     <button onClick={flipToNext}>Next</button>
                 </div>
             </main>) || (
-                <div className ='character-container'>
-                    <SingleCharPage
-                        key = {nanoid()}
-                        characterData = {singleCharPage}
-                        backToMain = {backToMain}
-                    />
-                </div>)
+                <main>
+                    <div className ='character-container'>
+                        <SingleCharPage
+                            key = {nanoid()}
+                            characterData = {singleCharPage}
+                            backToMain = {backToMain}
+                        />
+                    </div>
+                </main>)
 
     )
 }

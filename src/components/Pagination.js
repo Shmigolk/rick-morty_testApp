@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PaginationForFavorites({style, changePageNumber,pageNumber}) {
+export default function Pagination({style, changePageNumber,pageNumber}) {
 
     return (
         <div

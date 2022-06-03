@@ -2,7 +2,7 @@ import React from "react";
 import Character from "./Character";
 import '../App.css';
 import {nanoid} from "nanoid";
-import PaginationForFavorites from "./PaginationForFavorites";
+import Pagination from "./Pagination";
 import SingleCharPage from "./SingleCharPage";
 import Filter from "./Filter";
 
@@ -60,7 +60,7 @@ export default function Favorites() {
     const pagination = getPaginationArray(characters, ITEMS_PER_PAGE)
         .map( pageNumber => {
             const styles = {opacity: pageNumber===currentPage? "30%" : '100%'}
-            return <PaginationForFavorites
+            return <Pagination
                 key={pageNumber}
                 pageNumber={pageNumber}
                 style={styles}

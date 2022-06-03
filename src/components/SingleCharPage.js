@@ -1,23 +1,19 @@
 import React from 'react'
 
-function SingleCharPage(props) {
+function SingleCharPage({characterData, backToMain}) {
+    const {image, name, gender, status, location} = characterData
 
-    const avatarUrl = props.characterData.image
-    const name = props.characterData.name
-    const gender = props.characterData.gender
-    const status = props.characterData.status
-    const location = props.characterData.location.name
-    const backToMain = props.backToMain
+    const locationName = location.name
 
     return (
-        <section className="character-card">
-            <div className="character-card__avatar">
-                <img src={avatarUrl} alt='some text'/>
+        <section className="single-character-card">
+            <h1>Name: {name}</h1>
+            <div className="single-character-card__avatar">
+                <img src={image} alt='some text'/>
             </div>
-            <h2>{name}</h2>
-            <h3>{gender}</h3>
-            <h3>{status}</h3>
-            <h3>Location: {location}</h3>
+            <i className="fa-solid fa-house"/>
+            <p>Gender: {gender} / Status: {status} </p>
+            <p>Location: {locationName}</p>
             <button className="character-card__btn" onClick={backToMain}>Main page</button>
         </section>
     )
