@@ -25,7 +25,6 @@ export default function Favorites() {
         if (name) url += `&name=${name}`
         if (gender !== 'All') url += `&gender=${gender}`
         if (status !== 'All') url += `&status=${status}`
-        console.log(url)
 
          fetch(url)
             .then(res => {

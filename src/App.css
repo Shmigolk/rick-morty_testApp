@@ -195,12 +195,14 @@ select:hover {
   justify-content: center;
   gap: .5em;
   margin-bottom: 2em;
+  height: 10vh;
 }
 
 .pagination-box {
   border: 3px solid white;
   /*padding: .2em .5em;*/
   width: 2em;
+  height: 2em;
   cursor: pointer;
   opacity: 50%;
 }
@@ -209,3 +211,4 @@ select:hover {
   opacity: 100%;
   transform: scale(1.1);
 }
+
