@@ -6,47 +6,43 @@ import {
     faAngleLeft
 } from "@fortawesome/free-solid-svg-icons";
 
-function getPaginationArray(numberOfPages, currentPage, pageNumber) {
-    const PaginationArr = []
+export default function Pagination({NumberOfPages, flipToNext, flipToPrev, currentPage, changePageNumberByPaginationBox}) {
 
-    for ( let i = 1; i <= numberOfPages; i++) {
-        const currentPageStyle = currentPage === i ? 'current-page': ''
-        PaginationArr.push(
-            <div
-                className={`pagination-box ${currentPageStyle}`}
-                key={nanoid()}
-            >
-                {i}
-            </div>)
+    function getPaginationArray(numberOfPages, currentPage) {
+        const PaginationArr = []
+        for ( let pageNumber = 1; pageNumber <= numberOfPages; pageNumber++) {
+            const currentPageStyle = pageNumber === Number(currentPage) ? 'current-page': ''
+            PaginationArr.push(
+                <div
+                    className={`pagination-box ${currentPageStyle}`}
+                    key={nanoid()}
+                    data-value = {pageNumber}
+                    onClick={changePageNumberByPaginationBox}
+                >
+                    {pageNumber}
+                </div>)
+        }
+        return PaginationArr
     }
-    return PaginationArr
-}
 
-export default function Pagination({pageNumber, flipToNext, flipToPrev, currentPage}) {
-
-    const pageNumbers = getPaginationArray(pageNumber, currentPage, pageNumber).slice(0, 5)
+    const pageNumbers = getPaginationArray(NumberOfPages, currentPage).slice(0, 14)
     return (
         <div
             className={`pagination-container`}>
-
                 <FontAwesomeIcon
                     icon={faAngleLeft}
                     size="2x"
                     className={"angle-icon"}
                     onClick={flipToPrev}
                 />
-
                 {pageNumbers}
-
-                <div className={'pagination-box'}>{'...'}</div>
-
+                {/*<div className={'pagination-box'}>{'...'}</div>*/}
                 <FontAwesomeIcon
                     icon={faAngleRight}
                     size="2x"
                     className={"angle-icon"}
                     onClick={flipToNext}
                 />
-
         </div>
     )
 }

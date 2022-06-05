@@ -24,6 +24,7 @@ main {
   justify-content: space-between;
   color: white;
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 h2, p {
@@ -198,7 +199,8 @@ select:hover {
 
 .pagination-box {
   border: 3px solid white;
-  padding: .2em .5em;
+  /*padding: .2em .5em;*/
+  width: 2em;
   cursor: pointer;
   opacity: 50%;
 }

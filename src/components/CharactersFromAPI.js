@@ -9,8 +9,6 @@ import Pagination from "./Pagination";
 
 export default function Favorites() {
     const [characters, setCharacters] = React.useState([])
-    // const [nextPage, setNextPage] = React.useState('')
-    // const [prevPage, setPrevPage] = React.useState('')
     const [singleCharShow, setSingleCharShow] = React.useState(false)
     const [singleCharPage, setSingleCharPage] = React.useState({})
     const [pages, setPages] = React.useState(1)
@@ -23,9 +21,7 @@ export default function Favorites() {
     let INITIAL_URL = `https://rickandmortyapi.com/api/character/?page=${currentPage}`
 
     function getCharactersPage(url){
-
         const {name, gender, status} = filter
-
         if (name) url += `&name=${name}`
         if (gender !== 'All') url += `&gender=${gender}`
         if (status !== 'All') url += `&status=${status}`
@@ -37,8 +33,6 @@ export default function Favorites() {
             )
             .then(({results, info}) => {
                 setCharacters(results)
-                // setNextPage(info.next)
-                // setPrevPage(info.prev)
                 setPages(info.pages)
             })
         }
@@ -77,6 +71,11 @@ export default function Favorites() {
         }
     }
 
+    function changePageNumberByPaginationBox(event) {
+        const newPageNumber = event.target.dataset.value
+        setCurrentPage(newPageNumber)
+    }
+
     function nameFilter(event){
         let {name, value} = event.target
         setFilter( prevState => (
@@ -98,10 +97,11 @@ export default function Favorites() {
                     {charactersRendering}
                 </div>
                 <Pagination
-                    pageNumber = {pages}
+                    NumberOfPages = {pages}
                     flipToNext = {flipToNext}
                     flipToPrev = {flipToPrev}
                     currentPage = {currentPage}
+                    changePageNumberByPaginationBox = {changePageNumberByPaginationBox}
                 />
             </main>) || (
                 <main>

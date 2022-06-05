@@ -62,7 +62,7 @@ export default function Favorites() {
             const styles = {opacity: pageNumber===currentPage? "30%" : '100%'}
             return <Pagination
                 key={pageNumber}
-                pageNumber={pageNumber}
+                NumberOfPages={pageNumber}
                 style={styles}
                 changePageNumber={() => changePageNumber(pageNumber)}/>
         })
