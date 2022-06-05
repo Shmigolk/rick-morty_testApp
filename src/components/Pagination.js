@@ -9,7 +9,7 @@ import {
 export default function Pagination({NumberOfPages, flipToNext, flipToPrev, currentPage, changePageNumberByPaginationBox}) {
 
     function getPaginationArray(numberOfPages, currentPage) {
-        const PaginationArr = []
+        let PaginationArr = []
         for ( let pageNumber = 1; pageNumber <= numberOfPages; pageNumber++) {
             const currentPageStyle = pageNumber === Number(currentPage) ? 'current-page': ''
             PaginationArr.push(
@@ -22,6 +22,19 @@ export default function Pagination({NumberOfPages, flipToNext, flipToPrev, curre
                     {pageNumber}
                 </div>)
         }
+            if (numberOfPages < 15) return PaginationArr
+            else {
+                if (currentPage === 1) {
+                    PaginationArr = [
+                        PaginationArr.slice(currentPage - 1, currentPage + 3),
+                        <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(13,17),
+                        <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(37, 41)
+                    ]
+                }
+                else{
+
+                }
+            }
         return PaginationArr
     }
 
