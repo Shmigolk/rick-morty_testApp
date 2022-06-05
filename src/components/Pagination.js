@@ -22,12 +22,14 @@ export default function Pagination({NumberOfPages, flipToNext, flipToPrev, curre
                     changePageNumberByPaginationBox = {changePageNumberByPaginationBox}
                 />)
         }
+        // todo: Finish pagination bar
+            const oneThird = Math.floor(numberOfPages/3)
             if (numberOfPages < 15) return PaginationArr
             else {
                 if ( currentPage <= 3 ) {
                         PaginationArr = [
                             PaginationArr.slice(0, 4),
-                            <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(Math.floor(numberOfPages/3) - 2, Math.floor(numberOfPages/3) + 2),
+                            <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(oneThird - 2, oneThird + 2),
                             <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(numberOfPages - 4, numberOfPages)
                         ]
                 }
@@ -43,11 +45,11 @@ export default function Pagination({NumberOfPages, flipToNext, flipToPrev, curre
                         ]
                     }
                     else {
-                        if (currentPage < 39){
+                        if (currentPage < numberOfPages - 3){
                         PaginationArr = [
                             PaginationArr.slice(0, 1),
                             <div className={`pagination-box`}>{'...'}</div>,
-                            PaginationArr.slice(Math.floor(numberOfPages/3) - 1, Math.floor(numberOfPages/3) + 3),
+                            PaginationArr.slice(oneThird - 1, oneThird + 3),
                             <div className={`pagination-box`}>{'...'}</div>,
                             PaginationArr.slice(currentPage - 3, currentPage +2),
                             <div className={`pagination-box`}>{'...'}</div>,
@@ -57,7 +59,7 @@ export default function Pagination({NumberOfPages, flipToNext, flipToPrev, curre
                         else {
                             PaginationArr = [
                                 PaginationArr.slice(0, 4),
-                                <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(Math.floor(numberOfPages/3) - 2, Math.floor(numberOfPages/3) + 2),
+                                <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(oneThird - 2, oneThird + 2),
                                 <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(numberOfPages - 4, numberOfPages)
                             ]
                         }

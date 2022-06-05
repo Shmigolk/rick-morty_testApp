@@ -115,6 +115,7 @@ select:hover {
   cursor: pointer;
   align-self: center;
   margin-top: .5em;
+  justify-self: flex-end;
 }
 
 .angle-icon {
@@ -194,7 +195,7 @@ select:hover {
   display: flex;
   justify-content: center;
   gap: .5em;
-  margin-bottom: 2em;
+  margin: 1em 0;
   height: 10vh;
 }
 
