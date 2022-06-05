@@ -103,7 +103,7 @@ select:hover {
 }
 
 .single-character-card {
-  width: 600px;
+  width: 30vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

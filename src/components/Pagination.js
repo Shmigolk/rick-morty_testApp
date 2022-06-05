@@ -44,11 +44,24 @@ export default function Pagination({NumberOfPages, flipToNext, flipToPrev, curre
                         ]
                     }
                     else {
+                        if (currentPage < 39){
                         PaginationArr = [
-                            PaginationArr.slice(0, 2),
-                            <div className={`pagination-box`}>{'...'}</div>
-
+                            PaginationArr.slice(0, 1),
+                            <div className={`pagination-box`}>{'...'}</div>,
+                            PaginationArr.slice(Math.floor(numberOfPages/3) - 1, Math.floor(numberOfPages/3) + 3),
+                            <div className={`pagination-box`}>{'...'}</div>,
+                            PaginationArr.slice(currentPage - 3, currentPage +2),
+                            <div className={`pagination-box`}>{'...'}</div>,
+                            PaginationArr[41]
                         ]
+                    }
+                        else {
+                            PaginationArr = [
+                                PaginationArr.slice(0, 4),
+                                <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(Math.floor(numberOfPages/3) - 2, Math.floor(numberOfPages/3) + 2),
+                                <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(numberOfPages - 4, numberOfPages)
+                            ]
+                        }
                     }
                 }
             }
