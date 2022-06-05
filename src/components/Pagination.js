@@ -5,6 +5,7 @@ import {
     faAngleRight,
     faAngleLeft
 } from "@fortawesome/free-solid-svg-icons";
+import PaginationBox from "./PaginationBox";
 
 export default function Pagination({NumberOfPages, flipToNext, flipToPrev, currentPage, changePageNumberByPaginationBox}) {
 
@@ -14,14 +15,12 @@ export default function Pagination({NumberOfPages, flipToNext, flipToPrev, curre
         for ( let pageNumber = 1; pageNumber <= numberOfPages; pageNumber++) {
             const currentPageStyle = pageNumber === Number(currentPage) ? 'current-page': ''
             PaginationArr.push(
-                <div
-                    className={`pagination-box ${currentPageStyle}`}
-                    key={nanoid()}
-                    data-value = {pageNumber}
-                    onClick={changePageNumberByPaginationBox}
-                >
-                    {pageNumber}
-                </div>)
+                <PaginationBox
+                    currentPageStyle = {currentPageStyle}
+                    key = {nanoid()}
+                    pageNumber={pageNumber}
+                    changePageNumberByPaginationBox = {changePageNumberByPaginationBox}
+                />)
         }
             if (numberOfPages < 15) return PaginationArr
             else {

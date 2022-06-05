@@ -1,11 +1,11 @@
 import React from "react";
 import {nanoid} from "nanoid";
 
-export default function PaginationBox({currentPageStyle,pageNumber, changePageNumberByPaginationBox }) {
+export default function PaginationBox({currentPageStyle,pageNumber, changePageNumberByPaginationBox, key }) {
     return (
         <div
             className={`pagination-box ${currentPageStyle}`}
-            key={nanoid()}
+            key={key}
             data-value = {pageNumber}
             onClick={changePageNumberByPaginationBox}
             >
