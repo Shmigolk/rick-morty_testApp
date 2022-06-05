@@ -10,9 +10,11 @@ export default function Character(props) {
                 <div className="character-card__avatar">
                     <img src={image} alt='some text' className='card-image'/>
                 </div>
-                <h2>{name}</h2>
-                <p>Gender: {gender}</p>
-                <p>Status: {status}</p>
+                <div className= 'character-cart-text'>
+                    <h2>{name}</h2>
+                    <p>Gender: {gender}</p>
+                    <p>Status: {status}</p>
+                </div>
             </section>
     )
 }

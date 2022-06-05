@@ -4,21 +4,23 @@ import '../App.css';
 import {nanoid} from "nanoid";
 import SingleCharPage from "./SingleCharPage";
 import Filter from "./Filter";
-let INITIAL_URL = "https://rickandmortyapi.com/api/character/?page=1"
+import Pagination from "./Pagination";
+
 
 export default function Favorites() {
     const [characters, setCharacters] = React.useState([])
-    const [nextPage, setNextPage] = React.useState('')
-    const [prevPage, setPrevPage] = React.useState('')
+    // const [nextPage, setNextPage] = React.useState('')
+    // const [prevPage, setPrevPage] = React.useState('')
     const [singleCharShow, setSingleCharShow] = React.useState(false)
     const [singleCharPage, setSingleCharPage] = React.useState({})
+    const [pages, setPages] = React.useState(1)
     const [currentPage, setCurrentPage] = React.useState(1)
     const [filter, setFilter] =  React.useState({
         name: '',
         gender: 'All',
         status: 'All',
     })
-
+    let INITIAL_URL = `https://rickandmortyapi.com/api/character/?page=${currentPage}`
 
     function getCharactersPage(url){
 
@@ -33,17 +35,17 @@ export default function Favorites() {
                 if (res.ok) return res.json()
                 }
             )
-            .then(data => {
-
-                setCharacters(data.results)
-                setNextPage(data.info.next)
-                setPrevPage(data.info.prev)
+            .then(({results, info}) => {
+                setCharacters(results)
+                // setNextPage(info.next)
+                // setPrevPage(info.prev)
+                setPages(info.pages)
             })
         }
 
     React.useEffect( () => {
         getCharactersPage(INITIAL_URL)
-    }, [filter])
+    }, [filter, currentPage])
 
     const charactersRendering = characters.map( char => (
         <Character
@@ -64,15 +66,13 @@ export default function Favorites() {
     }
 
     function flipToNext(){
-        if (nextPage){
-            getCharactersPage(nextPage)
+        if (currentPage < pages){
             setCurrentPage(prev => ++prev)
         }
     }
 
     function flipToPrev(){
-        if (prevPage){
-            getCharactersPage(prevPage)
+        if (currentPage > 1){
             setCurrentPage(prev => --prev)
         }
     }
@@ -97,11 +97,12 @@ export default function Favorites() {
                 <div className ='character-container'>
                     {charactersRendering}
                 </div>
-                <div className="btn-container">
-                    <button onClick={flipToPrev}>Prev</button>
-                    <p>{currentPage}</p>
-                    <button onClick={flipToNext}>Next</button>
-                </div>
+                <Pagination
+                    pageNumber = {pages}
+                    flipToNext = {flipToNext}
+                    flipToPrev = {flipToPrev}
+                    currentPage = {currentPage}
+                />
             </main>) || (
                 <main>
                     <div className ='character-container'>
