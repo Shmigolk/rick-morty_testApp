@@ -5,6 +5,7 @@ import {nanoid} from "nanoid";
 import SingleCharPage from "./SingleCharPage";
 import Filter from "./Filter";
 import Pagination from "./Pagination";
+import AllCharacters from "./AllCharacters";
 
 export default function Favorites() {
 
@@ -94,15 +95,10 @@ export default function Favorites() {
     return (
         (!singleCharShow &&
             <main>
-                <Filter
-                    key = {nanoid()}
+                <AllCharacters
                     filter = {filter}
                     nameFilter = {nameFilter}
-                />
-                <div className ='character-container'>
-                    {charactersRendering}
-                </div>
-                <Pagination
+                    charactersRendering = {charactersRendering}
                     NumberOfPages = {pages}
                     flipToNext = {flipToNext}
                     flipToPrev = {flipToPrev}
@@ -111,13 +107,11 @@ export default function Favorites() {
                 />
             </main>) || (
                 <main>
-                    <div className ='character-container'>
                         <SingleCharPage
                             key = {nanoid()}
                             characterData = {singleCharPage}
                             backToMain = {backToMain}
                         />
-                    </div>
                 </main>)
 
     )
