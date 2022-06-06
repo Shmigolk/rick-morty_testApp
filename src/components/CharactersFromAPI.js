@@ -7,6 +7,7 @@ import Filter from "./Filter";
 import Pagination from "./Pagination";
 
 export default function Favorites() {
+
     const [characters, setCharacters] = React.useState([])
     const [singleCharShow, setSingleCharShow] = React.useState(false)
     const [singleCharPage, setSingleCharPage] = React.useState({})
@@ -18,11 +19,10 @@ export default function Favorites() {
         status: 'All',
     })
     let INITIAL_URL = `https://rickandmortyapi.com/api/character/?page=${currentPage}`
-    // todo: fix the filter bug.
+
     function getCharactersPage(url){
 
         const {name, gender, status} = filter
-
         if (name) url += `&name=${name}`
         if (gender !== 'All') url += `&gender=${gender}`
         if (status !== 'All') url += `&status=${status}`
