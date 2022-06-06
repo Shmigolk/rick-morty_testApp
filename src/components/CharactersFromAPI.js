@@ -20,11 +20,12 @@ export default function Favorites() {
     let INITIAL_URL = `https://rickandmortyapi.com/api/character/?page=${currentPage}`
     // todo: fix the filter bug.
     function getCharactersPage(url){
+
         const {name, gender, status} = filter
+
         if (name) url += `&name=${name}`
         if (gender !== 'All') url += `&gender=${gender}`
         if (status !== 'All') url += `&status=${status}`
-        console.log(url)
 
          fetch(url)
             .then(res => {
@@ -78,6 +79,7 @@ export default function Favorites() {
 
     function nameFilter(event){
         let {name, value} = event.target
+        setCurrentPage(1)
         setFilter( prevState => (
             {
                 ...prevState,
