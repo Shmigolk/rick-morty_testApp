@@ -9,19 +9,20 @@ function SingleCharPage({characterData, backToMain}) {
     const locationName = location.name
 
     return (
-        <section className="single-character-card">
-            <h1>{name}</h1>
-            <div className="single-character-card__avatar">
-                <img src={image} alt='some text'/>
-            </div>
-            <i className="fa-solid fa-house"/>
-            <p>Gender: {gender} / Status: {status} </p>
-            <p>Location: {locationName}</p>
-            <Link to={"home"}>
-                <FontAwesomeIcon icon={faHome} size="3x" onClick={backToMain} className='home-icon'/>
-            </Link>
-
-        </section>
+        <main>
+            <section className="single-character-card">
+                <h1>{name}</h1>
+                <div className="single-character-card__avatar">
+                    <img src={image} alt='some text'/>
+                </div>
+                <i className="fa-solid fa-house"/>
+                <p>Gender: {gender} / Status: {status} </p>
+                <p>Location: {locationName}</p>
+                <Link to={"home"}>
+                    <FontAwesomeIcon icon={faHome} size="3x" onClick={backToMain} className='home-icon'/>
+                </Link>
+            </section>
+        </main>
     )
 }
 

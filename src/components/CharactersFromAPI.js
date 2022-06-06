@@ -3,9 +3,8 @@ import Character from "./Character";
 import '../App.css';
 import {nanoid} from "nanoid";
 import SingleCharPage from "./SingleCharPage";
-import Filter from "./Filter";
-import Pagination from "./Pagination";
 import AllCharacters from "./AllCharacters";
+import {Switch, Router} from "react-router-dom";
 
 export default function Favorites() {
 
@@ -79,7 +78,7 @@ export default function Favorites() {
 
     function changePageNumberByPaginationBox(event) {
         const newPageNumber = event.target.dataset.value
-        setCurrentPage(newPageNumber)
+        setCurrentPage(Number(newPageNumber))
     }
 
     function nameFilter(event){
@@ -93,8 +92,7 @@ export default function Favorites() {
     }
 
     return (
-        (!singleCharShow &&
-            <main>
+        !singleCharShow &&
                 <AllCharacters
                     filter = {filter}
                     nameFilter = {nameFilter}
@@ -103,18 +101,16 @@ export default function Favorites() {
                     flipToNext = {flipToNext}
                     flipToPrev = {flipToPrev}
                     currentPage = {currentPage}
-                    changePageNumberByPaginationBox = {changePageNumberByPaginationBox}
-                />
-            </main>) || (
-                <main>
-                        <SingleCharPage
-                            key = {nanoid()}
-                            characterData = {singleCharPage}
-                            backToMain = {backToMain}
-                        />
-                </main>)
+                    changePageNumberByPaginationBox = {changePageNumberByPaginationBox}/> || (
 
-    )
+                    <SingleCharPage
+                        key = {nanoid()}
+                        characterData = {singleCharPage}
+                        backToMain = {backToMain}/>
+                )
+
+            )
+
 }
 
 

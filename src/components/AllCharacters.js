@@ -7,7 +7,7 @@ import Pagination from "./Pagination";
 
 export default function  AllCharacters({filter, nameFilter, charactersRendering, NumberOfPages, flipToNext,flipToPrev, currentPage, changePageNumberByPaginationBox }) {
     return (
-        <>
+        <main>
             <Filter
                 key = {nanoid()}
                 filter = {filter}
@@ -23,7 +23,7 @@ export default function  AllCharacters({filter, nameFilter, charactersRendering,
                 currentPage = {currentPage}
                 changePageNumberByPaginationBox = {changePageNumberByPaginationBox}
             />
-        </>
+        </main>
 
     )
 }
