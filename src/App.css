@@ -8,6 +8,11 @@
   --clr-btn: greenyellow;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   height: 100%;
   background-image: url("https://lh3.googleusercontent.com/Erh49W85kbSWlnuXIInLG2cfRODDyZKTsuBmpnNQcKgNVoJo8l3RDbV7vdWJ9mMguDQ=h500");
@@ -89,7 +94,8 @@ select:hover {
   justify-content: space-around;
   text-align: center;
   padding: .5em;
-  min-height: 100vh;
+  max-height: 100vh;
+  overflow-x: hidden;
 }
 
 .home-icon {
@@ -132,6 +138,7 @@ select:hover {
     margin-bottom: 1em;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     gap: 1em;
@@ -147,7 +154,6 @@ select:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     /*padding: .5em;*/
     width: 8.5vw;
     min-width: 100px;
