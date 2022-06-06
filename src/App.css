@@ -86,9 +86,10 @@ select:hover {
   width: 30vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   text-align: center;
   padding: .5em;
+  min-height: 100vh;
 }
 
 .home-icon {
@@ -168,8 +169,6 @@ select:hover {
   /*  height: 30%;*/
   /*  opacity: 70%;*/
   /*}*/
-
-
 
   .character-card__avatar > img {
     width: 100%;
