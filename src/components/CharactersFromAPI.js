@@ -36,6 +36,10 @@ export default function Favorites() {
                 setCharacters(results)
                 setPages(info.pages)
             })
+             .catch(err => {
+                 setCharacters([])
+                 setPages(1)
+             })
         }
 
     React.useEffect( () => {
