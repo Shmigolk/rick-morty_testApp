@@ -11,6 +11,8 @@
 a {
   text-decoration: none;
   color: inherit;
+
+  width: -moz-fit-content;
 }
 
 body {
@@ -97,6 +99,10 @@ select:hover {
   padding: .5em;
   max-height: 100vh;
   overflow-x: hidden;
+}
+
+home-icon-container {
+  display: flex;
 }
 
 .home-icon {

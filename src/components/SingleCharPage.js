@@ -18,9 +18,11 @@ function SingleCharPage({characterData, backToMain}) {
                 <i className="fa-solid fa-house"/>
                 <p>Gender: {gender} / Status: {status} </p>
                 <p>Location: {locationName}</p>
-                <Link to={"home"}>
-                    <FontAwesomeIcon icon={faHome} size="3x" onClick={backToMain} className='home-icon'/>
-                </Link>
+                <div className='home-icon-container'>
+                    <Link to={"home"}>
+                        <FontAwesomeIcon icon={faHome} size="3x" onClick={backToMain} className='home-icon'/>
+                    </Link>
+                </div>
             </section>
         </main>
     )

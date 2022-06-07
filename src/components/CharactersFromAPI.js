@@ -4,7 +4,7 @@ import '../App.css';
 import {nanoid} from "nanoid";
 import SingleCharPage from "./SingleCharPage";
 import AllCharacters from "./AllCharacters";
-import {Switch, Router} from "react-router-dom";
+
 
 export default function Favorites() {
 
@@ -46,11 +46,11 @@ export default function Favorites() {
         getCharactersPage(INITIAL_URL)
     }, [filter, currentPage])
 
-    const charactersRendering = characters.map( char => (
+    const charactersRendering = characters.map( character => (
         <Character
             key = {nanoid()}
-            characterData = {char}
-            showCharPage = {() => showCharPage(char)}
+            characterData = {character}
+            showCharPage = {() => showCharPage(character)}
         />
     ))
 
