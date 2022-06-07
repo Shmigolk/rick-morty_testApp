@@ -92,6 +92,7 @@ export default function Favorites() {
     }
 
     return (
+
         !singleCharShow &&
                 <AllCharacters
                     filter = {filter}

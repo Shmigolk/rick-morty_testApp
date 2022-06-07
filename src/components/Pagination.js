@@ -39,7 +39,7 @@ export default function Pagination({NumberOfPages, flipToNext, flipToPrev, curre
                         PaginationArr = [
                             PaginationArr[0],
                             <div className={`pagination-box`}>{'...'}</div>,
-                            PaginationArr.slice(currentPage - 4, currentPage + 3),
+                            PaginationArr.slice(currentPage - 2, currentPage + 4),
                             <div className={`pagination-box`}>{'...'}</div>,
                             PaginationArr.slice(numberOfPages - 4, numberOfPages)
                         ]

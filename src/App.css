@@ -88,11 +88,12 @@ select:hover {
 }
 
 .single-character-card {
-  width: 30vw;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+
   padding: .5em;
   max-height: 100vh;
   overflow-x: hidden;
@@ -115,7 +116,7 @@ select:hover {
 }
 
 .single-character-card__avatar > img {
-  width: 70%;
+  width: 25%;
   border-radius: .5em;
   overflow: hidden;
 }
