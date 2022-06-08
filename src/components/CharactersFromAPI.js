@@ -2,15 +2,12 @@ import React from "react";
 import Character from "./Character";
 import '../App.css';
 import {nanoid} from "nanoid";
-import SingleCharPage from "./SingleCharPage";
 import AllCharacters from "./AllCharacters";
 
 
 export default function Favorites() {
 
     const [characters, setCharacters] = React.useState([])
-    const [singleCharShow, setSingleCharShow] = React.useState(false)
-    const [singleCharPage, setSingleCharPage] = React.useState({})
     const [pages, setPages] = React.useState(1)
     const [currentPage, setCurrentPage] = React.useState(1)
     const [filter, setFilter] =  React.useState({
@@ -50,19 +47,9 @@ export default function Favorites() {
         <Character
             key = {nanoid()}
             characterData = {character}
-            showCharPage = {() => showCharPage(character)}
         />
     ))
 
-    function showCharPage(item){
-        setSingleCharShow(true)
-        setSingleCharPage(item)
-    }
-
-    function backToMain(){
-        setSingleCharShow(false)
-        setSingleCharPage({})
-    }
 
     function flipToNext(){
         if (currentPage < pages){
@@ -92,8 +79,6 @@ export default function Favorites() {
     }
 
     return (
-
-        !singleCharShow &&
                 <AllCharacters
                     filter = {filter}
                     nameFilter = {nameFilter}
@@ -102,13 +87,7 @@ export default function Favorites() {
                     flipToNext = {flipToNext}
                     flipToPrev = {flipToPrev}
                     currentPage = {currentPage}
-                    changePageNumberByPaginationBox = {changePageNumberByPaginationBox}/> || (
-
-                    <SingleCharPage
-                        key = {nanoid()}
-                        characterData = {singleCharPage}
-                        backToMain = {backToMain}/>
-                )
+                    changePageNumberByPaginationBox = {changePageNumberByPaginationBox}/>
 
             )
 
