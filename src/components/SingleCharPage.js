@@ -1,10 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {faHome} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Link} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
+import {Context} from "../Context";
 
-function SingleCharPage({characterData, backToMain}) {
-    const {image, name, gender, status, location} = characterData
+function SingleCharPage() {
+    const {characterId} = useParams()
+    const {characters} = useContext(Context)
+    const singlePageData = characters.find( character => character.id = characterId)
+
+
+    const {image, name, gender, status, location} = singlePageData
 
     const locationName = location.name
 
@@ -19,8 +25,8 @@ function SingleCharPage({characterData, backToMain}) {
                 <p>Gender: {gender} / Status: {status} </p>
                 <p>Location: {locationName}</p>
                 <div className='home-icon-container'>
-                    <Link to={"home"}>
-                        <FontAwesomeIcon icon={faHome} size="3x" onClick={backToMain} className='home-icon'/>
+                    <Link to="/">
+                        <FontAwesomeIcon icon={faHome} size="3x" className='home-icon'/>
                     </Link>
                 </div>
             </section>
