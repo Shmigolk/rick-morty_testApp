@@ -6,7 +6,7 @@ import {Context} from "../Context";
 
 function SingleCharPage() {
     const {characterId} = useParams()
-    const {characters} = useContext(Context)
+    const {characters, setCurrentPage} = useContext(Context)
     const singlePageData = characters.find( character => character.id === Number(characterId))
     const {image, name, gender, status, location} = singlePageData
 
