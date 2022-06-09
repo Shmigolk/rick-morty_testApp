@@ -7,7 +7,6 @@ function ContextProvider({children}) {
     const [characters, setCharacters] = React.useState([])
     const [pages, setPages] = React.useState(1)
     const [currentPage, setCurrentPage] = React.useState(1)
-    // const [singlePageData, setSinglePageData] = React.useState({})
     const [filter, setFilter] =  React.useState({
         name: '',
         gender: 'All',
@@ -67,10 +66,6 @@ function ContextProvider({children}) {
                 [name]: value
             }))
     }
-
-    // function showCharacterPage(character){
-    //     setSinglePageData(character)
-    // }
 
     return (
         <Context.Provider value={{characters,pages,currentPage, filter, flipToNext, flipToPrev, changePageNumberByPaginationBox,
