@@ -6,6 +6,7 @@ import AllCharacters from "./AllCharacters";
 import {Context} from "../Context";
 
 
+
 export default function Favorites() {
     const {
             characters,
