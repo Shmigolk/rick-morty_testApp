@@ -1,4 +1,5 @@
 import React, {createContext} from "react";
+import {useParams} from "react-router-dom";
 
 
 const Context = createContext()
@@ -7,6 +8,7 @@ function ContextProvider({children}) {
     const [characters, setCharacters] = React.useState([])
     const [pages, setPages] = React.useState(1)
     const [currentPage, setCurrentPage] = React.useState(1)
+    const [singleCharacterData, setSingleCharacterData] = React.useState({})
     const [filter, setFilter] =  React.useState({
         name: '',
         gender: 'All',
@@ -37,6 +39,7 @@ function ContextProvider({children}) {
     }
 
     React.useEffect( () => {
+        console.log('this is use-effect')
         getCharactersPage(INITIAL_URL)
     }, [filter, currentPage])
 
@@ -67,9 +70,12 @@ function ContextProvider({children}) {
             }))
     }
 
+    console.log('context-provider')
+
     return (
+
         <Context.Provider value={{characters,pages,currentPage, filter, flipToNext, flipToPrev, changePageNumberByPaginationBox,
-        nameFilter}}>
+        nameFilter, singleCharacterData}}>
             {children}
         </Context.Provider>
     )
