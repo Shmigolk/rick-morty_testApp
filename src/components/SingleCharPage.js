@@ -1,25 +1,49 @@
 import React from 'react'
+import {faHome} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Link, useParams} from "react-router-dom"
 
-function SingleCharPage(props) {
+function SingleCharPage() {
+    const {characterId} = useParams()
 
-    const avatarUrl = props.characterData.image
-    const name = props.characterData.name
-    const gender = props.characterData.gender
-    const status = props.characterData.status
-    const location = props.characterData.location.name
-    const backToMain = props.backToMain
+    console.log('SingleCharPage characterId: ', characterId)
+    const [singlePageData, setSinglePageData] = React.useState(null)
+    // const singlePageData = characters.find( character => character.id === Number(characterId))
+
+    const {image, name, gender, status, location} = singlePageData || {}
+
+
+    React.useEffect(() => {
+        fetch(`https://rickandmortyapi.com/api/character/${characterId}`)
+            .then(res => res.json())
+            .then(data => {
+                setSinglePageData(data)
+
+            })
+    }, [characterId])
 
     return (
-        <section className="character-card">
-            <div className="character-card__avatar">
-                <img src={avatarUrl} alt='some text'/>
-            </div>
-            <h2>{name}</h2>
-            <h3>{gender}</h3>
-            <h3>{status}</h3>
-            <h3>Location: {location}</h3>
-            <button className="character-card__btn" onClick={backToMain}>Main page</button>
-        </section>
+        <main>
+            {singlePageData && (
+                <section className="single-character-card">
+                    <h1>{name}</h1>
+                    <div className="single-character-card__avatar">
+                        <img src={image}
+                             alt='some text'/>
+                    </div>
+                    <i className="fa-solid fa-house"/>
+                    <p>Gender: {gender} / Status: {status} </p>
+                    <p>Location: {location.name}</p>
+                    <div className='home-icon-container'>
+                        <Link to="/">
+                            <FontAwesomeIcon icon={faHome}
+                                             size="3x"
+                                             className='home-icon'/>
+                        </Link>
+                    </div>
+                </section>
+            )}
+        </main>
     )
 }
 

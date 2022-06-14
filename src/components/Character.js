@@ -1,21 +1,27 @@
-import React from "react";
+import React, {useContext} from "react";
+import {Link} from "react-router-dom";
+import {Context} from "../Context";
 
 export default function Character(props) {
+    // const {showCharacterPage} = useContext(Context)
 
-    const avatarUrl = props.characterData.image
-    const name = props.characterData.name
-    const gender = props.characterData.gender
-    const status = props.characterData.status
+    const {image, name, gender, status, id} = props.characterData
 
     return (
-        <section className="character-card character-card__hover"
-        onClick={props.showCharPage}>
-            <div className="character-card__avatar">
-                <img src={avatarUrl} alt='some text'/>
-            </div>
-            <h2>{name}</h2>
-            <h3>{gender}</h3>
-            <h3>{status}</h3>
-        </section>
+                <section
+                    className="character-card character-card__hover"
+                    // onClick={showCharacterPage}
+                    >
+                    <Link to={`/${id}`}>
+                        <div className="character-card__avatar">
+                            <img src={image} alt='some text' className='card-image'/>
+                        </div>
+                        <div className= 'character-cart-text'>
+                            <h2>{name}</h2>
+                            <p>Gender: {gender}</p>
+                            <p>Status: {status}</p>
+                        </div>
+                    </Link>
+                </section>
     )
 }

@@ -2,12 +2,35 @@ import React from "react";
 import Character from "./Character";
 import '../App.css';
 import {nanoid} from "nanoid";
-import Pagination from "./pagination";
+import Pagination from "./Pagination";
 import SingleCharPage from "./SingleCharPage";
 import Filter from "./Filter";
 
-export default function App() {
+function filterWrap(arr, filter){
+    return arr.filter(char => {
 
+        const nameContains = char.name.toUpperCase().includes(filter.name.toUpperCase())
+        const genderMatch = char.gender === filter.gender
+        const statusMatch = char.status === filter.status
+
+        if ((!filter.name || nameContains)
+            && ((filter.gender === 'All')
+                || genderMatch) && (filter.status === 'All' || statusMatch)) return char
+    })
+}
+
+function getPaginationArray(characters, itemsPerPage = 4){
+    let Arr = []
+    for (let page = 1; page <= Math.ceil(characters.length / itemsPerPage); page ++){
+        Arr.push(page)
+    }
+    return Arr
+}
+
+
+
+export default function Favorites() {
+    const ITEMS_PER_PAGE = 20
     const [characters, setCharacters] = React.useState([])
     const [currentPage, setCurrentPage] = React.useState(1)
     const [singleCharShow, setSingleCharShow] = React.useState(false)
@@ -18,7 +41,7 @@ export default function App() {
         status: 'All',
     })
 
-    const itemsPerPage = 4
+
 
     React.useEffect( () => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -32,14 +55,14 @@ export default function App() {
             characterData = {char}
             showCharPage = {() => showCharPage(char)}
         />
-        )).slice(itemsPerPage * (currentPage - 1), currentPage * itemsPerPage)
+        )).slice(ITEMS_PER_PAGE * (currentPage - 1), currentPage * ITEMS_PER_PAGE)
 
-    const pagination = getPaginationArray(characters, itemsPerPage)
+    const pagination = getPaginationArray(characters, ITEMS_PER_PAGE)
         .map( pageNumber => {
             const styles = {opacity: pageNumber===currentPage? "30%" : '100%'}
             return <Pagination
                 key={pageNumber}
-                pageNumber={pageNumber}
+                NumberOfPages={pageNumber}
                 style={styles}
                 changePageNumber={() => changePageNumber(pageNumber)}/>
         })
@@ -90,23 +113,5 @@ export default function App() {
   )
 }
 
-function getPaginationArray(characters, itemsPerPage = 4){
-    let Arr = []
-    for (let page = 1; page <= Math.ceil(characters.length / itemsPerPage); page ++){
-        Arr.push(page)
-    }
-    return Arr
-}
 
-function filterWrap(arr, filter){
-return arr.filter(char => {
 
-    const nameContains = char.name.toUpperCase().includes(filter.name.toUpperCase())
-    const genderMatch = char.gender === filter.gender
-    const statusMatch = char.status === filter.status
-
-        if ((!filter.name || nameContains)
-            && ((filter.gender === 'All')
-                || genderMatch) && (filter.status === 'All' || statusMatch)) return char
-    })
-}
