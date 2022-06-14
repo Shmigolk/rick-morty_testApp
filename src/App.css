@@ -101,10 +101,6 @@ select:hover {
     overflow-x: hidden;
 }
 
-/*home-icon-container {*/
-/*  display: flex;*/
-/*}*/
-
 .home-icon {
     cursor: pointer;
     align-self: center;
@@ -127,7 +123,6 @@ select:hover {
     overflow: hidden;
 }
 
-@media (min-width: 600px) {
     .filter-component__selector {
         background: #282c34;
         color: white;
@@ -139,6 +134,7 @@ select:hover {
         gap: .3em;
         overflow: hidden;
         padding: 0 1em;
+
     }
 
     .filter-component {
@@ -164,12 +160,12 @@ select:hover {
         flex-direction: column;
         align-items: center;
         /*padding: .5em;*/
-        width: 8.5vw;
-        min-width: 100px;
+        width: 9vw;
+        min-width: 120px;
         border-radius: .5em;
         background-color: var(--clr-card);
         overflow: hidden;
-        max-height: 250px;
+        max-height: 270px;
     }
 
     .character-cart-text {
@@ -179,13 +175,14 @@ select:hover {
         justify-content: space-between;
         padding: .5em;
         color: #282c34;
+        word-wrap: break-word;
     }
 
     .character-card__avatar > img {
         width: 100%;
         margin: 0;
+        max-height: 55%;
     }
-}
 
 .pagination-container {
     display: flex;
@@ -208,4 +205,3 @@ select:hover {
     opacity: 100%;
     transform: scale(1.1);
 }
-

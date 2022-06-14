@@ -13,7 +13,7 @@ function Filter({filter, nameFilter}) {
                 <input
                        className="filter-component__selector"
                        type="text"
-                       placeholder='input name'
+                       placeholder='Filter by name'
                        name='name'
                        value={name}
                        onChange={nameFilter}

@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {faHome} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link, useParams} from "react-router-dom"
+import {Context} from "../Context";
 
 function SingleCharPage() {
+    const {currentPage} = useContext(Context)
     const {characterId} = useParams()
 
     console.log('SingleCharPage characterId: ', characterId)
@@ -34,7 +36,7 @@ function SingleCharPage() {
                     <p>Gender: {gender} / Status: {status} </p>
                     <p>Location: {location.name}</p>
                     <div className='home-icon-container'>
-                        <Link to="/">
+                        <Link to={`/`}>
                             <FontAwesomeIcon icon={faHome}
                                              size="3x"
                                              className='home-icon'/>

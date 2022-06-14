@@ -1,7 +1,6 @@
 import React, {createContext} from "react";
 import {useParams} from "react-router-dom";
 
-
 const Context = createContext()
 
 function ContextProvider({children}) {
