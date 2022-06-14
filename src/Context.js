@@ -8,15 +8,18 @@ function ContextProvider({children}) {
     const [characters, setCharacters] = React.useState([])
     const [pages, setPages] = React.useState(1)
     const [currentPage, setCurrentPage] = React.useState(1)
-    const [singleCharacterData, setSingleCharacterData] = React.useState({})
-    const [filter, setFilter] =  React.useState({
+    const [filter, setFilter] = React.useState({
         name: '',
         gender: 'All',
         status: 'All',
     })
+    const {characterId} = useParams()
+    const [singlePageData, setSinglePageData] = React.useState(null)
+
+
     let INITIAL_URL = `https://rickandmortyapi.com/api/character/?page=${currentPage}`
 
-    function getCharactersPage(url){
+    function getCharactersPage(url) {
 
         const {name, gender, status} = filter
         if (name) url += `&name=${name}`
@@ -38,19 +41,19 @@ function ContextProvider({children}) {
             })
     }
 
-    React.useEffect( () => {
+    React.useEffect(() => {
         console.log('this is use-effect')
         getCharactersPage(INITIAL_URL)
     }, [filter, currentPage])
 
-    function flipToNext(){
-        if (currentPage < pages){
+    function flipToNext() {
+        if (currentPage < pages) {
             setCurrentPage(prev => ++prev)
         }
     }
 
-    function flipToPrev(){
-        if (currentPage > 1){
+    function flipToPrev() {
+        if (currentPage > 1) {
             setCurrentPage(prev => --prev)
         }
     }
@@ -60,10 +63,10 @@ function ContextProvider({children}) {
         setCurrentPage(Number(newPageNumber))
     }
 
-    function nameFilter(event){
+    function nameFilter(event) {
         let {name, value} = event.target
         setCurrentPage(1)
-        setFilter( prevState => (
+        setFilter(prevState => (
             {
                 ...prevState,
                 [name]: value
@@ -74,8 +77,17 @@ function ContextProvider({children}) {
 
     return (
 
-        <Context.Provider value={{characters,pages,currentPage, filter, flipToNext, flipToPrev, changePageNumberByPaginationBox,
-        nameFilter, singleCharacterData}}>
+        <Context.Provider value={{
+            characters,
+            pages,
+            currentPage,
+            filter,
+            flipToNext,
+            flipToPrev,
+            changePageNumberByPaginationBox,
+            nameFilter,
+            singlePageData
+        }}>
             {children}
         </Context.Provider>
     )

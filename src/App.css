@@ -1,213 +1,210 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-:root{
-  --clr-card: #19c7c7;
-  --clr-pgntn: azure;
-  --clr-btn: greenyellow;
+:root {
+    --clr-card: #19c7c7;
+    --clr-pgntn: azure;
+    --clr-btn: greenyellow;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 
-  width: -moz-fit-content;
+    width: -moz-fit-content;
 }
 
 body {
-  height: 100%;
-  background-image: url("https://lh3.googleusercontent.com/Erh49W85kbSWlnuXIInLG2cfRODDyZKTsuBmpnNQcKgNVoJo8l3RDbV7vdWJ9mMguDQ=h500");
-  background-repeat: no-repeat;
-  background-size: cover;
+    height: 100%;
+    background-image: url("https://lh3.googleusercontent.com/Erh49W85kbSWlnuXIInLG2cfRODDyZKTsuBmpnNQcKgNVoJo8l3RDbV7vdWJ9mMguDQ=h500");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  background: #282c34;
-  padding-top: 1em;
-  text-align: center;
-  justify-content: space-between;
-  color: white;
-  min-height: 100vh;
-  min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: #282c34;
+    padding-top: 1em;
+    text-align: center;
+    justify-content: space-between;
+    color: white;
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
 h2, p {
-  margin: 0;
+    margin: 0;
 }
 
 h2 {
-  font-size: 1rem;
-  text-transform: uppercase;
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 p {
-  font-size: .8rem;
+    font-size: .8rem;
 }
 
 .filter-component__selector > p {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .single-character-card > p {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .single-character-card > h1 {
-  font-size: 3rem;
-  margin: 0 0 .3em 0;
+    font-size: 3rem;
+    margin: 0 0 .3em 0;
 }
 
 .character-card__hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .character-card__hover:hover {
-  transform: scale(1.01);
+    transform: scale(1.01);
 }
 
 input {
-  height: 50px;
-  color: white;
-  font-size: inherit;
-  background: inherit;
-  border: none;
+    height: 50px;
+    color: white;
+    font-size: inherit;
+    background: inherit;
+    border: none;
 }
 
 select {
-  background: #282c34;
-  border: none;
-  cursor: pointer;
-  color: white;
-  font-size: 1.5rem;
-  width: 5em;
+    background: #282c34;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5rem;
+    width: 5em;
 }
 
 select:hover {
-  background: #283431;
+    background: #283431;
 }
 
 .single-character-card {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
 
-  padding: .5em;
-  max-height: 100vh;
-  overflow-x: hidden;
+    padding: .5em;
+    max-height: 100vh;
+    overflow-x: hidden;
 }
 
-home-icon-container {
-  display: flex;
-}
+/*home-icon-container {*/
+/*  display: flex;*/
+/*}*/
 
 .home-icon {
-  cursor: pointer;
-  align-self: center;
-  margin-top: .5em;
-  justify-self: flex-end;
+    cursor: pointer;
+    align-self: center;
+    margin-top: .5em;
+    justify-self: flex-end;
 }
 
 .angle-icon {
-  cursor: pointer;
-  margin: 0 .5em;
+    cursor: pointer;
+    margin: 0 .5em;
 }
 
 .home-icon:hover, .angle-icon:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .single-character-card__avatar > img {
-  width: 25%;
-  border-radius: .5em;
-  overflow: hidden;
+    width: 25%;
+    border-radius: .5em;
+    overflow: hidden;
 }
 
 @media (min-width: 600px) {
-  .filter-component__selector {
-    background: #282c34;
-    color: white;
-    display: flex;
-    align-content: baseline;
-    align-items: center;
-    border: 3px solid white;
-    border-radius: 10px;
-    gap: .3em;
-    overflow: hidden;
-    padding: 0 1em;
-  }
+    .filter-component__selector {
+        background: #282c34;
+        color: white;
+        display: flex;
+        align-content: baseline;
+        align-items: center;
+        border: 3px solid white;
+        border-radius: 10px;
+        gap: .3em;
+        overflow: hidden;
+        padding: 0 1em;
+    }
 
-  .filter-component {
-    margin-bottom: 1em;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    gap: 1em;
-  }
-  .character-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    gap: 1em;
-    justify-content: center;
-  }
-  .character-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /*padding: .5em;*/
-    width: 8.5vw;
-    min-width: 100px;
-    border-radius: .5em;
-    background-color: var(--clr-card);
-    overflow: hidden;
-    max-height: 250px;
-  }
+    .filter-component {
+        margin-bottom: 1em;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        gap: 1em;
+    }
 
-  .character-cart-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: .5em;
-  }
+    .character-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        gap: 1em;
+        justify-content: center;
+    }
 
-  /*.character-card__avatar{*/
-  /*  height: 30%;*/
-  /*  opacity: 70%;*/
-  /*}*/
+    .character-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /*padding: .5em;*/
+        width: 8.5vw;
+        min-width: 100px;
+        border-radius: .5em;
+        background-color: var(--clr-card);
+        overflow: hidden;
+        max-height: 250px;
+    }
 
-  .character-card__avatar > img {
-    width: 100%;
-    margin: 0;
-  }
+    .character-cart-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: .5em;
+    }
+
+    .character-card__avatar > img {
+        width: 100%;
+        margin: 0;
+    }
 }
 
 .pagination-container {
-  display: flex;
-  justify-content: center;
-  gap: .5em;
-  margin: 1em 0;
-  height: 10vh;
+    display: flex;
+    justify-content: center;
+    gap: .5em;
+    margin: 1em 0;
+    height: 10vh;
 }
 
 .pagination-box {
-  border: 3px solid white;
-  /*padding: .2em .5em;*/
-  width: 2em;
-  height: 2em;
-  cursor: pointer;
-  opacity: 50%;
+    border: 3px solid white;
+    /*padding: .2em .5em;*/
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+    opacity: 50%;
 }
 
 .current-page {
-  opacity: 100%;
-  transform: scale(1.1);
+    opacity: 100%;
+    transform: scale(1.1);
 }
 
