@@ -8,7 +8,6 @@ function SingleCharPage() {
 
     console.log('SingleCharPage characterId: ', characterId)
     const [singlePageData, setSinglePageData] = React.useState(null)
-    // const singlePageData = characters.find( character => character.id === Number(characterId))
 
     const {image, name, gender, status, location} = singlePageData || {}
 

@@ -178,6 +178,7 @@ select:hover {
         align-items: center;
         justify-content: space-between;
         padding: .5em;
+        color: #282c34;
     }
 
     .character-card__avatar > img {

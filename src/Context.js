@@ -13,9 +13,6 @@ function ContextProvider({children}) {
         gender: 'All',
         status: 'All',
     })
-    const {characterId} = useParams()
-    const [singlePageData, setSinglePageData] = React.useState(null)
-
 
     let INITIAL_URL = `https://rickandmortyapi.com/api/character/?page=${currentPage}`
 
@@ -86,7 +83,7 @@ function ContextProvider({children}) {
             flipToPrev,
             changePageNumberByPaginationBox,
             nameFilter,
-            singlePageData
+
         }}>
             {children}
         </Context.Provider>

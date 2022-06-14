@@ -7,65 +7,59 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import PaginationBox from "./PaginationBox";
 
-export default function Pagination({NumberOfPages, flipToNext, flipToPrev, currentPage, changePageNumberByPaginationBox}) {
+export default function Pagination({
+                                       NumberOfPages,
+                                       flipToNext,
+                                       flipToPrev,
+                                       currentPage,
+                                       changePageNumberByPaginationBox
+                                   }) {
 
     function getPaginationArray(numberOfPages, currentPage) {
         let PaginationArr = []
         currentPage = Number(currentPage)
-        for ( let pageNumber = 1; pageNumber <= numberOfPages; pageNumber++) {
-            const currentPageStyle = pageNumber === Number(currentPage) ? 'current-page': ''
+        for (let pageNumber = 1; pageNumber <= numberOfPages; pageNumber++) {
+            const currentPageStyle = pageNumber === Number(currentPage) ? 'current-page' : ''
             PaginationArr.push(
                 <PaginationBox
-                    currentPageStyle = {currentPageStyle}
-                    key = {nanoid()}
+                    currentPageStyle={currentPageStyle}
+                    key={nanoid()}
                     pageNumber={pageNumber}
-                    changePageNumberByPaginationBox = {changePageNumberByPaginationBox}
+                    changePageNumberByPaginationBox={changePageNumberByPaginationBox}
                 />)
         }
-        // todo: Finish pagination bar
-            const oneThird = Math.floor(numberOfPages/3)
-            if (numberOfPages < 15) return PaginationArr
-            else {
-                if ( currentPage <= 3 ) {
-                        PaginationArr = [
-                            PaginationArr.slice(0, 4),
-                            <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(oneThird - 2, oneThird + 2),
-                            <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(numberOfPages - 4, numberOfPages)
-                        ]
-                }
-                else{
-                    // eslint-disable-next-line no-mixed-operators
-                    if ( currentPage < numberOfPages / 2) {
-                        PaginationArr = [
-                            PaginationArr[0],
-                            <div className={`pagination-box`}>{'...'}</div>,
-                            PaginationArr.slice(currentPage - 2, currentPage + 4),
-                            <div className={`pagination-box`}>{'...'}</div>,
-                            PaginationArr.slice(numberOfPages - 4, numberOfPages)
-                        ]
-                    }
-                    else {
-                        if (currentPage < numberOfPages - 3){
-                        PaginationArr = [
-                            PaginationArr.slice(0, 1),
-                            <div className={`pagination-box`}>{'...'}</div>,
-                            PaginationArr.slice(oneThird - 2, oneThird + 2),
-                            <div className={`pagination-box`}>{'...'}</div>,
-                            PaginationArr.slice(currentPage - 3, currentPage + 2),
-                            <div className={`pagination-box`}>{'...'}</div>,
-                            PaginationArr[41]
-                        ]
-                    }
-                        else {
-                            PaginationArr = [
-                                PaginationArr.slice(0, 4),
-                                <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(oneThird - 2, oneThird + 2),
-                                <div className={`pagination-box`}>{'...'}</div>, PaginationArr.slice(numberOfPages - 4, numberOfPages)
-                            ]
-                        }
-                    }
+
+        if (numberOfPages < 7) return PaginationArr
+        else {
+            if (currentPage <= 4) {
+                PaginationArr = [
+                    PaginationArr.slice(0, 6),
+                    <div className={`pagination-box`}
+                         key={nanoid()}>{'...'}</div>,
+                    PaginationArr[numberOfPages - 1]
+                ]
+            } else {
+
+                if (currentPage < numberOfPages - 5) {
+                    PaginationArr = [
+                        PaginationArr[0],
+                        <div className={`pagination-box`}
+                             key={nanoid()}>{'...'}</div>,
+                        PaginationArr.slice(currentPage - 2, currentPage + 2),
+                        <div className={`pagination-box`}
+                             key={nanoid()}>{'...'}</div>,
+                        PaginationArr[numberOfPages - 1]
+                    ]
+                } else {
+                    PaginationArr = [
+                        PaginationArr[0],
+                        <div className={`pagination-box`}
+                             key={nanoid()}>{'...'}</div>,
+                        PaginationArr.slice(numberOfPages - 6, numberOfPages)
+                    ]
                 }
             }
+        }
         return PaginationArr
     }
 
@@ -73,19 +67,19 @@ export default function Pagination({NumberOfPages, flipToNext, flipToPrev, curre
     return (
         <div
             className={`pagination-container`}>
-                <FontAwesomeIcon
-                    icon={faAngleLeft}
-                    size="2x"
-                    className={"angle-icon"}
-                    onClick={flipToPrev}
-                />
-                    {pageNumbers}
-                <FontAwesomeIcon
-                    icon={faAngleRight}
-                    size="2x"
-                    className={"angle-icon"}
-                    onClick={flipToNext}
-                />
+            <FontAwesomeIcon
+                icon={faAngleLeft}
+                size="2x"
+                className={"angle-icon"}
+                onClick={flipToPrev}
+            />
+            {pageNumbers}
+            <FontAwesomeIcon
+                icon={faAngleRight}
+                size="2x"
+                className={"angle-icon"}
+                onClick={flipToNext}
+            />
         </div>
     )
 }
