@@ -117,11 +117,6 @@ select:hover {
     transform: scale(1.1);
 }
 
-.single-character-card__avatar > img {
-    width: 25%;
-    border-radius: .5em;
-    overflow: hidden;
-}
 
     .filter-component__selector {
         background: #282c34;
@@ -178,10 +173,14 @@ select:hover {
         word-wrap: break-word;
     }
 
+.character-card__avatar {
+    height: 130px;
+    overflow: hidden;
+}
+
     .character-card__avatar > img {
         width: 100%;
         margin: 0;
-        max-height: 55%;
     }
 
 .pagination-container {
@@ -205,3 +204,5 @@ select:hover {
     opacity: 100%;
     transform: scale(1.1);
 }
+
+

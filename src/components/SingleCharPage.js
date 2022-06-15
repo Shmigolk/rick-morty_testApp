@@ -1,16 +1,12 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import {faHome} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link, useParams} from "react-router-dom"
-import {Context} from "../Context";
 
 function SingleCharPage() {
-    const {currentPage} = useContext(Context)
+
     const {characterId} = useParams()
-
-    console.log('SingleCharPage characterId: ', characterId)
     const [singlePageData, setSinglePageData] = React.useState(null)
-
     const {image, name, gender, status, location} = singlePageData || {}
 
 
