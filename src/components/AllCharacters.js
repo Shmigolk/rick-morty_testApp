@@ -1,5 +1,4 @@
 import React from "react";
-import Character from "./Character";
 import '../App.css';
 import {nanoid} from "nanoid";
 import Filter from "./Filter";
