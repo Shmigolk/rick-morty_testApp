@@ -53,6 +53,7 @@ p {
 
 .single-character-card > p {
     font-size: 1.5rem;
+    cursor: pointer
 }
 
 .single-character-card > h1 {
@@ -60,11 +61,7 @@ p {
     margin: 0 0 .3em 0;
 }
 
-.character-card__hover {
-    cursor: pointer;
-}
-
-.character-card__hover:hover {
+.character-card:hover {
     transform: scale(1.01);
 }
 
@@ -154,15 +151,24 @@ select:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
-        /*padding: .5em;*/
         width: 9vw;
         min-width: 120px;
         border-radius: .5em;
         background-color: var(--clr-card);
-        overflow: hidden;
-        max-height: 270px;
+        max-height: 230px;
+        overflow: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 
+.character-card::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.character-card:hover {
+    transform: scale(1.01);
+}
     .character-cart-text {
         display: flex;
         flex-direction: column;
@@ -175,6 +181,12 @@ select:hover {
 
 .character-card__avatar {
     height: 130px;
+    overflow: hidden;
+}
+
+.single-character-card__avatar > img {
+    width: 25%;
+    border-radius: .5em;
     overflow: hidden;
 }
 
