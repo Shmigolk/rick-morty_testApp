@@ -115,51 +115,51 @@ select:hover {
 }
 
 
-    .filter-component__selector {
-        background: #282c34;
-        color: white;
-        display: flex;
-        align-content: baseline;
-        align-items: center;
-        border: 3px solid white;
-        border-radius: 10px;
-        gap: .3em;
-        overflow: hidden;
-        padding: 0 1em;
+.filter-component__selector {
+    background: #282c34;
+    color: white;
+    display: flex;
+    align-content: baseline;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 10px;
+    gap: .3em;
+    overflow: hidden;
+    padding: 0 1em;
 
-    }
+}
 
-    .filter-component {
-        margin-bottom: 1em;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-content: center;
-        gap: 1em;
-    }
+.filter-component {
+    margin-bottom: 1em;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 1em;
+}
 
-    .character-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: stretch;
-        gap: 1em;
-        justify-content: center;
-    }
+.character-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 1em;
+    justify-content: center;
+}
 
-    .character-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 9vw;
-        min-width: 120px;
-        border-radius: .5em;
-        background-color: var(--clr-card);
-        max-height: 230px;
-        overflow: auto;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
+.character-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 9vw;
+    min-width: 120px;
+    border-radius: .5em;
+    background-color: var(--clr-card);
+    max-height: 230px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
 .character-card::-webkit-scrollbar {
     width: 0;
@@ -169,15 +169,16 @@ select:hover {
 .character-card:hover {
     transform: scale(1.01);
 }
-    .character-cart-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        padding: .5em;
-        color: #282c34;
-        word-wrap: break-word;
-    }
+
+.character-cart-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5em;
+    color: #282c34;
+    word-wrap: break-word;
+}
 
 .character-card__avatar {
     height: 130px;
@@ -190,10 +191,10 @@ select:hover {
     overflow: hidden;
 }
 
-    .character-card__avatar > img {
-        width: 100%;
-        margin: 0;
-    }
+.character-card__avatar > img {
+    width: 100%;
+    margin: 0;
+}
 
 .pagination-container {
     display: flex;
