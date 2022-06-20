@@ -20,7 +20,7 @@ You can also input single character ID into url thanks to React-Router. To
 go back to all characters you can press home icon or go back button in your
 browser.
 
-![me](../../bandicam-2022-06-20-15-08-51-208_Trim.gif)
+![GIF_1.gif](GIF_1.gif)
 
 [//]: # (To manage states I use React-Context, but I am going to use Redux in the )
 
