@@ -34,11 +34,11 @@ function ContextProvider({children}) {
             .catch(err => {
                 setCharacters([])
                 setPages(1)
+                console.error(err)
             })
     }
 
     React.useEffect(() => {
-        console.log('this is use-effect')
         getCharactersPage(INITIAL_URL)
     }, [filter, currentPage])
 
@@ -68,8 +68,6 @@ function ContextProvider({children}) {
                 [name]: value
             }))
     }
-
-    console.log('context-provider')
 
     return (
 

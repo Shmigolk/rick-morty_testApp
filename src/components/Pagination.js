@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import {nanoid} from "nanoid";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
@@ -6,14 +6,14 @@ import {
     faAngleLeft
 } from "@fortawesome/free-solid-svg-icons";
 import PaginationBox from "./PaginationBox";
+import {Context} from "../Context";
 
-export default function Pagination({
-                                       NumberOfPages,
-                                       flipToNext,
-                                       flipToPrev,
-                                       currentPage,
-                                       changePageNumberByPaginationBox
-                                   }) {
+export default function Pagination() {
+    const {pages,
+        flipToNext,
+        flipToPrev,
+        currentPage,
+        changePageNumberByPaginationBox} = useContext(Context)
 
     function getPaginationArray(numberOfPages, currentPage) {
         let PaginationArr = []
@@ -63,7 +63,7 @@ export default function Pagination({
         return PaginationArr
     }
 
-    const pageNumbers = getPaginationArray(NumberOfPages, currentPage)
+    const pageNumbers = getPaginationArray(pages, currentPage)
     return (
         <div
             className={`pagination-container`}>
