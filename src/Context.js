@@ -34,6 +34,7 @@ function ContextProvider({children}) {
             .catch(err => {
                 setCharacters([])
                 setPages(1)
+                console.error(err)
             })
     }
 

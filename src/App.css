@@ -186,7 +186,7 @@ select:hover {
 }
 
 .single-character-card__avatar > img {
-    width: 25%;
+    width: 450px;
     border-radius: .5em;
     overflow: hidden;
 }
