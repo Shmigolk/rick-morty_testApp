@@ -22,12 +22,19 @@ browser.
 
 ![](../../bandicam-2022-06-20-15-08-51-208_Trim.gif)
 
-To manage states I use React-Context, but I am going to use Redux in the 
-future. There is so much work can be done! 
-For example:
-- adding characters to favorites list
-- add an ability to make your own character using local storage
-- improve routing 
+[//]: # (To manage states I use React-Context, but I am going to use Redux in the )
 
-This project is improving by me all the time. If you want to add anything 
-here to pump up your skills you are welcome!
+[//]: # (future. There is so much work can be done! )
+
+[//]: # (For example:)
+
+[//]: # (- adding characters to favorites list)
+
+[//]: # (- add an ability to make your own character using local storage)
+
+[//]: # (- improve routing )
+
+[//]: # ()
+[//]: # (This project is improving by me all the time. If you want to add anything )
+
+[//]: # (here to pump up your skills you are welcome!)
