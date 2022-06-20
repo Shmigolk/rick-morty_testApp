@@ -9,7 +9,7 @@ React-router, react context.
 
 This app gets data from [Rick and Morty API](https://rickandmortyapi.com/) 
 and render it on the screen. There are more than 800 characters provided by 
-this API. To prevent overloading this API provides pagination and filtering. 
+this API. This API provides pagination and filtering. 
 You can filter characters by name, status (dead/alive) and gender.
 
 ![img_2.png](img_2.png)
