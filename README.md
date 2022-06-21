@@ -22,6 +22,12 @@ browser.
 
 ![GIF_1.gif](GIF_1.gif)
 
+## Project setup
+
+npm install
+
+npm start
+
 [//]: # (To manage states I use React-Context, but I am going to use Redux in the )
 
 [//]: # (future. There is so much work can be done! )
