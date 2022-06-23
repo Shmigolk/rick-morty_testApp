@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import Character from "./Character";
 import '../App.css';
 import {nanoid} from "nanoid";
-import AllCharacters from "./AllCharacters";
+import PageContent from "./PageContent";
 import {Context} from "../Context";
 
 export default function Favorites() {
@@ -16,7 +16,7 @@ export default function Favorites() {
     ))
 
     return (
-        <AllCharacters
+        <PageContent
             charactersRendering={charactersRendering}
         />
     )
