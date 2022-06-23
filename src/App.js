@@ -1,4 +1,4 @@
-import CharactersFromAPI from './components/CharactersFromAPI'
+import CharactersFromAPI from './components/CharactersList'
 import SingleCharPage from "./components/SingleCharPage";
 
 import {Routes, Route} from "react-router-dom";
